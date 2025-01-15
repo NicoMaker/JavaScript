@@ -1,58 +1,59 @@
 # **JavaScript Basics**
 
-JavaScript is a versatile programming language that enables the creation of dynamic and interactive web applications. This guide covers fundamental concepts and includes practical examples to help you master the basics.
+JavaScript is a versatile programming language that allows you to create dynamic and interactive web applications. This guide covers the fundamental concepts with practical examples to help you master the basics.
 
 ---
 
 ## **What is JavaScript?**
 
-JavaScript is a high-level, interpreted, and object-oriented programming language. It is primarily used to enhance user experience on web pages, enabling functionalities such as:
+JavaScript is a high-level, interpreted, object-oriented programming language. It is mainly used to enhance the user experience of web pages, enabling functionalities such as:
 
 - Dynamic dropdown menus
 - Form validations
 - Animations
-- Real-time interactions (e.g., chats)
+- Real-time interactions (e.g., chat)
 
-Unlike **HTML** (which defines the structure) and **CSS** (which defines the style), JavaScript manages the **behavior** of web pages.
+It differs from **HTML** (which defines the page structure) and **CSS** (which defines the page style) as it controls **behavior**.
 
 ---
 
 ## **Variables**
 
-Variables store data that can be used and manipulated throughout a program. You can declare variables using `var`, `let`, or `const`.
+Variables store data that can be used and manipulated in a program. You can declare variables using `var`, `let`, or `const`.
 
-- **`var`**: Global or function scope (less common in modern projects).
-- **`let`**: Block scope, prevents many issues associated with `var`.
+- **`var`**: Global or function scope (less used in modern projects).
+- **`let`**: Block scope, safer than `var`.
 - **`const`**: For variables that must not be reassigned.
 
 **Example:**
 
 ```javascript
-let age = 25; // A variable that can change
-const name = "John"; // A constant
-var isStudent = true; // A traditional variable
+let age = 25; // Mutable variable
+const name = "John"; // Constant
+var isStudent = true; // Traditional variable
 ```
 
 ---
 
 ## **Data Types**
 
-JavaScript data types are divided into **primitive** types and **objects**.
+JavaScript data types are divided into **primitive** and **object** types.
 
-### **Primitive Types:**
+### **Primitive types:**
 
 1. `string` - Text
-2. `number` - Integers and decimals
+2. `number` - Integers and decimals (including float)
 3. `boolean` - Logical values (`true`/`false`)
-4. `null` - Intentional absence of value
-5. `undefined` - Variable declared but not assigned
+4. `null` - Intentional null value
+5. `undefined` - Undefined value
 6. `symbol` - Unique identifiers (introduced in ES6)
 
 **Example:**
 
 ```javascript
 let text = "Hello"; // String
-let num = 42; // Number
+let num = 42; // Integer
+let floatNum = 3.14; // Float
 let isActive = true; // Boolean
 let value = null; // Null
 let notAssigned; // Undefined
@@ -62,12 +63,12 @@ let notAssigned; // Undefined
 
 ## **Operators**
 
-Operators perform operations on data. Examples include:
+Operators perform operations on data. Some examples:
 
-1. **Arithmetic:** `+`, `-`, `*`, `/`, `%`
-2. **Assignment:** `=`, `+=`, `-=`
-3. **Comparison:** `==`, `===`, `!=`, `<`, `>`
-4. **Logical:** `&&`, `||`, `!`
+1. **Arithmetic**: `+`, `-`, `*`, `/`, `%`
+2. **Assignment**: `=`, `+=`, `-=`
+3. **Comparison**: `==`, `===`, `!=`, `<`, `>`
+4. **Logical**: `&&`, `||`, `!`
 
 **Example:**
 
@@ -85,7 +86,7 @@ console.log(a > b && b > 0); // true
 
 Functions are reusable blocks of code.
 
-### **Function Declaration:**
+### **Function declaration:**
 
 ```javascript
 function greet(name) {
@@ -94,7 +95,7 @@ function greet(name) {
 console.log(greet("Alice"));
 ```
 
-### **Arrow Function (ES6):**
+### **Arrow function (ES6):**
 
 ```javascript
 const greet = (name) => `Hello, ${name}!`;
@@ -107,7 +108,7 @@ console.log(greet("Bob"));
 
 **Objects** store data as key-value pairs, while **JSON** (JavaScript Object Notation) is a format for structuring data.
 
-**Object Example:**
+**Object example:**
 
 ```javascript
 let person = {
@@ -122,7 +123,7 @@ console.log(person.name); // Alice
 person.greet(); // Hi, I'm Alice
 ```
 
-**JSON Example:**
+**JSON example:**
 
 ```json
 {
@@ -132,7 +133,7 @@ person.greet(); // Hi, I'm Alice
 }
 ```
 
-To convert objects to JSON or vice versa:
+To convert an object to JSON or vice versa:
 
 ```javascript
 let jsonString = JSON.stringify(person); // Object → JSON
@@ -167,7 +168,7 @@ dog.speak(); // Buddy says hello!
 
 ## **DOM Manipulation**
 
-The DOM represents the structure of an HTML page. JavaScript can interact with it to modify content or style.
+The DOM represents the HTML structure of a page. JavaScript can interact with it to modify content or style.
 
 **Example:**
 
@@ -181,7 +182,7 @@ header.style.color = "red";
 
 ## **Events**
 
-Events allow JavaScript to react to user interactions.
+Events allow you to react to user interactions.
 
 **Example:**
 
@@ -195,7 +196,7 @@ document.getElementById("btn").addEventListener("click", () => {
 
 ## **Arrays**
 
-Arrays are used to store lists of items.
+Arrays store lists of elements.
 
 **Example:**
 
@@ -223,6 +224,36 @@ if (score > 80) {
 
 2. **Loops:** `for`, `while`, `do-while`
 
+### **While loop example**
+
+Executes code **while** the condition is true.
+
+```javascript
+let i = 0;
+
+while (i < 3) {
+  console.log(`The value of i is: ${i}`);
+  i++;
+}
+```
+
+### **Do-while loop example**
+
+Executes code **at least once**, then checks the condition.
+
+```javascript
+let j = 0;
+
+do {
+  console.log(`The value of j is: ${j}`);
+  j++;
+} while (j < 3);
+```
+
+### **For loop example**
+
+Executes code **n** times.
+
 ```javascript
 for (let i = 0; i < 3; i++) {
   console.log(i);
@@ -233,7 +264,7 @@ for (let i = 0; i < 3; i++) {
 
 ## **Error Handling**
 
-Handle errors with `try-catch`.
+Handle errors using `try-catch`.
 
 ```javascript
 try {

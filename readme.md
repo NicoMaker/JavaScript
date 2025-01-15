@@ -42,7 +42,7 @@ I tipi di dati in JavaScript sono suddivisi in **primitivi** e **oggetti**.
 ### **Tipi primitivi:**
 
 1. `string` - Testo
-2. `number` - Numeri interi e decimali
+2. `number` - Numeri interi e decimali (incluso il tipo float)
 3. `boolean` - Valori logici (`true`/`false`)
 4. `null` - Valore nullo intenzionale
 5. `undefined` - Valore non definito
@@ -52,7 +52,8 @@ I tipi di dati in JavaScript sono suddivisi in **primitivi** e **oggetti**.
 
 ```javascript
 let text = "Hello"; // Stringa
-let num = 42; // Numero
+let num = 42; // Numero intero
+let floatNum = 3.14; // Numero decimale (float)
 let isActive = true; // Booleano
 let value = null; // Null
 let notAssigned; // Undefined
@@ -223,6 +224,36 @@ if (score > 80) {
 
 2. **Cicli:** `for`, `while`, `do-while`
 
+### **Esempio di ciclo WHILE**
+
+Esegue un blocco di codice **finché** la condizione rimane vera.
+
+```javascript
+let i = 0;
+
+while (i < 3) {
+  console.log(`Il valore di i è: ${i}`);
+  i++;
+}
+```
+
+### **Esempio di ciclo DO-WHILE**
+
+Esegue il blocco di codice **almeno una volta**, e poi controlla la condizione.
+
+```javascript
+let j = 0;
+
+do {
+  console.log(`Il valore di j è: ${j}`);
+  j++;
+} while (j < 3);
+```
+
+### **Esempio di ciclo FOR**
+
+Esegue un blocco di codice **n** volte.
+
 ```javascript
 for (let i = 0; i < 3; i++) {
   console.log(i);
@@ -263,6 +294,7 @@ try {
    ```
 
 3. **Spread Operator:**
+
    ```javascript
    let arr1 = [1, 2];
    let arr2 = [...arr1, 3, 4];
