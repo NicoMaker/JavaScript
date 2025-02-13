@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const editbox = document.getElementById("editbox"),
     button = document.getElementById("populateButton"),
     anotherButton = document.getElementById("anotherButton"),
-    terzobottone = document.getElementById("terzobottone");
+    terzobottone = document.getElementById("terzobottone"),
+    clear = document.getElementById("clear");
 
   // Popola l'editbox con un testo predefinito
   button.addEventListener("click", () => {
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let elementCreated = false;
   terzobottone.addEventListener("click", () => {
     editbox.value = "";
+    editbox.value = "Hai cliccato il bottone dal terzo bottone!";
 
     if (!elementCreated) {
       const newElement = document.createElement("div");
@@ -35,5 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Cambia il testo del bottone quando l'editbox viene modificato
   editbox.addEventListener("input", () => {
     button.innerHTML = "un altro bottone";
+  });
+
+  clear.addEventListener("click", () => {
+    editbox.value = "";
   });
 });
