@@ -4,7 +4,7 @@
 
 # Legenda
 
-- [intoduzione](#introduzione)
+- [Introduzione](#introduzione)
 - [HTML](#HTML)
 - [CSS](#CSS)
 - [JavaScript](#javascript)
