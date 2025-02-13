@@ -11,7 +11,7 @@
 - [Assieme](#uso-tutti-assieme)
 - [Storia](#storia)
 - [Funzioni e Arrow Function](#funzioni-e-arrow-function-in-javascript)
-- [Adattabilità SO](#Adattabilità)
+- [Adattabilità SO](#adattabilità)
 - [Tipi di Dati](#tipi-di-dati)
 - [Stampa a teminale](#stampa-a-teminale)
 - [Cicli](#cicli)
