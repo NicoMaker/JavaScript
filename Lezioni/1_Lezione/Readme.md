@@ -5,10 +5,9 @@
 # Legenda
 
 - [intoduzione](#introduzione)
-- [Esercizi](#esercizi)
-- [HTML](#-html--la-struttura)
-- [CSS](#-css--lo-stile)
-- [JS](#-js--linterattività)
+- [HTML](#HTML)
+- [CSS](#CSS)
+- [JavaScript](#javascript)
 - [Assieme](#uso-tutti-assieme)
 - [Storia](#storia)
 - [Funzioni e Arrow Function](#funzioni-e-arrow-function-in-javascript)
@@ -16,6 +15,7 @@
 - [Tipi di Dati](#tipi-di-dati)
 - [Stampa a teminale](#stampa-a-teminale)
 - [Cicli](#cicli)
+- [Esempi](#esempi)
 - [Esercizi](#esercizi)
 
 ## Introduzione
@@ -24,7 +24,10 @@
 
 - Occupare di come sono strutturati gli oggetti in base a come sono messi nello schermo ma non come si va la parte semantica.
 
-## 🔹 HTML – La Struttura
+
+## HTML
+
+### La struttura
 
 L'HTML (HyperText Markup Language) è il linguaggio che definisce la struttura di una pagina web. Immaginalo come lo scheletro di un edificio: determina quali elementi devono essere presenti, come titoli, paragrafi, immagini, link e pulsanti.
 
@@ -34,7 +37,9 @@ Organizza il contenuto della pagina.
 Definisce gli elementi essenziali di un sito web (testo, immagini, link, ecc.).
 Crea la base su cui si applicano lo stile (CSS) e l'interattività (JavaScript).
 
-## 🎨 CSS – Lo Stile
+## CSS
+
+#### Lo stile
 
 Il CSS (Cascading Style Sheets) è il linguaggio utilizzato per rendere una pagina web esteticamente piacevole. Controlla i colori, i font, le dimensioni degli elementi e la disposizione del contenuto, rendendo il sito accattivante e leggibile.
 
@@ -44,7 +49,9 @@ Modifica il colore del testo e dello sfondo.
 Imposta font, margini, spaziature e allineamenti.
 Adatta il sito a diversi schermi (desktop, tablet, smartphone).
 
-## ⚡ JavaScript – L’Interattività
+## JavaScript 
+
+### L’Interattività
 
 Il JavaScript è un linguaggio di programmazione che permette di aggiungere funzionalità dinamiche e interattive a una pagina web. Grazie a JavaScript, un sito può rispondere alle azioni dell'utente, aggiornare contenuti senza ricaricare la pagina e gestire dati in tempo reale.
 
@@ -267,6 +274,22 @@ Le funzioni in JavaScript, sia tradizionali che arrow functions, sono strumenti 
   fruits.forEach((fruit) => console.log(fruit));
   ```
 
+## ESempi
+
+``` javascript
+console.log("Hello World!");
+
+// Esempio ciclo for che stampa a console che conta da 0 a 1 milione
+
+console.log("Timer");
+for (let i = 0; i < 1000000; i++) {}
+
+// tempo che ci ha messo il browser ha contare fino a 1 milione di numeri
+console.timeEnd("Timer");
+
+for (let i = 0; i < 5; i++) console.count(`My label`); // conta etichette che va ogni volta
+```
+
 ## Esercizi
 
-- [1 Esercizio](Esercizi/1_Esercizio/)
+- [1 Lezione](Esercizi/1_Esercizio/index.html)
