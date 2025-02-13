@@ -274,7 +274,7 @@ Le funzioni in JavaScript, sia tradizionali che arrow functions, sono strumenti 
   fruits.forEach((fruit) => console.log(fruit));
   ```
 
-## ESempi
+## Esempi
 
 ``` javascript
 console.log("Hello World!");
