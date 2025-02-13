@@ -12,6 +12,11 @@
 - [Assieme](#uso-tutti-assieme)
 - [Storia](#storia)
 - [Funzioni e Arrow Function](#funzioni-e-arrow-function-in-javascript)
+- [Adattabilità SO](#adattabilità)
+- [Tipi di Dati](#tipi-di-dati)
+- [Stampa a teminale](#stampa-a-teminale)
+- [Cicli](#cicli)
+- [Esercizi](#esercizi)
 
 ## Introduzione
 
@@ -154,4 +159,114 @@ A differenza delle funzioni tradizionali, le arrow functions **non hanno un prop
 
 Le funzioni in JavaScript, sia tradizionali che arrow functions, sono strumenti potenti e versatili, fondamentali per la scrittura di codice efficiente e strutturato.
 
+## Adattabilità
+
+- Funziona in tutti i sistemi operativi perchè si adatta con il browser-
+- Altre sistemi operativi no.
+
+- Java e JavaScript (JS) -> eliminano cose in più che non servono.
+
+## Tipi di Dati
+
+- numericic
+
+  ```javascript
+  let x = 5;
+  let y = 3;
+  let z = x + y;
+  ```
+
+- string
+
+  ```javascript
+  let name = "John";
+  let greeting = "Hello, " + name + "!";
+  ```
+
+- boolean
+
+  ```javascript
+  let isTrue = true;
+  let isFalse = false;
+  ```
+
+- float
+
+  ```javascript
+  let pi = 3.14159;
+  ```
+
+- undefinf
+
+  ```javascript
+  let x;
+  ```
+
+- null
+
+  ```javascript
+  let x = null;
+  ```
+
+## Stampa a teminale
+
+- `console.log`
+
+  ```javascript
+  console.log("Hello, world!");
+  ```
+
+# Cicli
+
+- For
+
+  ```javascript
+  for (let i = 0; i < 10; i++) console.log(i);
+  ```
+
+- While
+
+  ```javascript
+  let i = 0;
+  while (i < 10) {
+    console.log(i);
+    i++;
+  }
+  ```
+
+- Do While
+
+  ```javascript
+  let i = 0;
+  do {
+    console.log(i);
+    i++;
+  } while (i < 10);
+  ```
+
+- Switch
+
+  ```javascript
+  let x = 5;
+  switch (x) {
+    case 1:
+      console.log("x is 1");
+      break;
+    case 2:
+      console.log("x is 2");
+      break;
+    default:
+      console.log("x is not 1 or 2");
+  }
+  ```
+
+- Foreach
+
+  ```javascript
+  let fruits = ["apple", "banana", "cherry"];
+  fruits.forEach((fruit) => console.log(fruit));
+  ```
+
 ## Esercizi
+
+- [1 Esercizio](Esercizi/1_Esercizio/)
