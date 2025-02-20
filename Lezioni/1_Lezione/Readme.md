@@ -292,5 +292,5 @@ for (let i = 0; i < 5; i++) console.count(`My label`); // conta etichette che va
 
 ## Esercizi
 
-- [1 Lezione](Esercizi/1_Esercizio)
-- [2 Lezione](Esercizi/2_Esercizio/)
+- [1 Esercizio](Esercizi/1_Esercizio)
+- [2 Esercizio](Esercizi/2_Esercizio/)
