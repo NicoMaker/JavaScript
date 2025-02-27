@@ -287,3 +287,4 @@ console.log(8 % 2); // Output: 0
 
 - [1 Esercizio](Esercizi/1_Esercizio/script.js)
 - [2 Esercizio](Esercizi/2_Esercizio/script.js)
+- [3 Esercizio](Esercizi/3_Esercizio/lesson00.js)
