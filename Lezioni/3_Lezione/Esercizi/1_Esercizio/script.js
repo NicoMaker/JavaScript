@@ -47,6 +47,20 @@ function Modules() {
   }
 }
 
+function StampaStringa() {
+  const word = "JavaScript";
+
+  for (let i = 0; i < word.length; i++) console.log(word[i]);
+}
+
+function Stampapari() {
+  for (let i = 0; i <= 100; i += 2) console.log(i);
+}
+
+function StampaDispari() {
+  for (let i = 1; i <= 100; i += 2) console.log(i);
+}
+
 const ErrorType = () => {
   throw new Error("Stopping Execution");
 };
@@ -59,4 +73,7 @@ EsempiXYZ();
 ExampleStrutureObject();
 Votazioni(70);
 Modules();
+StampaStringa();
+Stampapari();
+StampaDispari();
 // ErrorType();
