@@ -1,23 +1,39 @@
-/* Contenitore del bottone */
+/* Contenitore bottoni */
 .button-container {
   text-align: center;
   margin-top: 20px;
 }
 
-/* Bottone Aggiungi Dato */
-.btn-aggiungi {
-  background-color: #4caf50; /* Colore verde */
-  color: white;
+/* Stili comuni ai bottoni */
+.btn-aggiungi,
+.btn-cancella {
   font-size: 16px;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 5px;
+}
+
+/* Bottone Aggiungi */
+.btn-aggiungi {
+  background-color: #4caf50;
+  color: white;
 }
 
 .btn-aggiungi:hover {
-  background-color: #45a049; /* Colore verde più scuro al passaggio del mouse */
+  background-color: #45a049;
+}
+
+/* Bottone Cancella */
+.btn-cancella {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-cancella:hover {
+  background-color: #d32f2f;
 }
 
 /* Pop-up */
@@ -37,7 +53,7 @@
   text-align: center;
 }
 
-/* Stile del campo di input */
+/* Stile input */
 .pop-up input {
   width: 100%;
   padding: 12px;
@@ -55,7 +71,7 @@
   margin-bottom: 10px;
 }
 
-/* Bottone Aggiungi nel pop-up */
+/* Bottoni pop-up */
 .btn-aggiungi-dato {
   background-color: #007bff;
   color: white;
@@ -64,14 +80,12 @@
   border: none;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s ease;
 }
 
 .btn-aggiungi-dato:hover {
   background-color: #0056b3;
 }
 
-/* Bottone Annulla */
 .btn-annulla {
   background-color: #f44336;
   color: white;
@@ -81,14 +95,13 @@
   cursor: pointer;
   font-size: 16px;
   margin-left: 10px;
-  transition: background-color 0.3s ease;
 }
 
 .btn-annulla:hover {
   background-color: #d32f2f;
 }
 
-/* Animazione di apertura del popup */
+/* Animazione di apertura pop-up */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -108,17 +121,14 @@
 .table-container table {
   width: 100%;
   border-collapse: collapse;
-  border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .table-container th,
 .table-container td {
   border: 1px solid #ddd;
-  padding: 12px 15px;
+  padding: 12px;
   text-align: center;
-  font-size: 14px;
   background-color: #f4f4f4;
 }
 
@@ -130,7 +140,7 @@
   background-color: #e9e9e9;
 }
 
-/* Icona del cestino */
+/* Icona cestino */
 .table-container .cestino {
   cursor: pointer;
   font-size: 18px;

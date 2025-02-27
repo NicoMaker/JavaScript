@@ -1,25 +1,25 @@
-// Funzione per mostrare il pop-up
+// Mostra il pop-up
 const showPopUp = () =>
   (document.getElementById("popUp").style.display = "block");
 
-// Funzione per chiudere il pop-up
+// Chiude il pop-up
 const closePopUp = () =>
   (document.getElementById("popUp").style.display = "none");
 
-// Funzione per aggiungere il dato
+// Aggiunge un nuovo dato alla tabella
 function addData(event) {
-  event.preventDefault(); // Evita il comportamento predefinito del form (submit)
+  event.preventDefault(); // Evita il comportamento predefinito del form
 
   const dataInput = document.getElementById("dataInput").value,
     errorMessage = document.getElementById("error-message");
 
-  // Verifica che il dato sia inserito
+  // Controlla che il campo non sia vuoto
   if (dataInput === "") {
-    errorMessage.style.display = "block"; // Mostra il messaggio di errore
+    errorMessage.style.display = "block";
     return;
-  } else errorMessage.style.display = "none"; // Nascondi il messaggio di errore
+  } else errorMessage.style.display = "none";
 
-  // Aggiungi il dato alla tabella
+  // Aggiunge il dato alla tabella
   const table = document
       .getElementById("dataTable")
       .getElementsByTagName("tbody")[0],
@@ -30,37 +30,39 @@ function addData(event) {
   cell2.innerHTML =
     '<span class="cestino" onclick="removeRow(this)">&#x1F5D1;</span>'; // Icona cestino
 
-  // Ordina la tabella dopo l'aggiunta dei dati
+  // Ordina la tabella
   sortTable();
 
-  // Chiudi il pop-up
+  // Chiude il pop-up
   closePopUp();
 
   // Resetta il campo di input
   document.getElementById("dataInput").value = "";
 }
 
-// Funzione per rimuovere una riga
+// Rimuove una riga dalla tabella
 function removeRow(button) {
   const row = button.parentNode.parentNode;
   row.parentNode.removeChild(row);
-
-  // Ordina la tabella dopo aver rimosso una riga
-  sortTable();
+  sortTable(); // Riordina dopo la rimozione
 }
 
-// Funzione per ordinare la tabella
+// Ordina la tabella
 function sortTable() {
   const table = document.getElementById("dataTable"),
-    rows = Array.from(table.rows).slice(1); // Ottieni tutte le righe tranne l'intestazione
-  const sortedRows = rows.sort((rowA, rowB) => {
-    const cellA = rowA.cells[0].textContent,
-      cellB = rowB.cells[0].textContent;
+    rows = Array.from(table.querySelector("tbody").rows),
+    sortedRows = rows.sort((rowA, rowB) => {
+      const cellA = rowA.cells[0].textContent,
+        cellB = rowB.cells[0].textContent;
+      return cellA.localeCompare(cellB);
+    });
 
-    // Confronta le celle in base al contenuto (puoi cambiare il criterio di ordinamento)
-    return cellA.localeCompare(cellB);
-  });
+  sortedRows.forEach((row) => table.querySelector("tbody").appendChild(row));
+}
 
-  // Aggiungi le righe ordinate di nuovo alla tabella
-  sortedRows.forEach((row) => table.appendChild(row));
+// Cancella tutti i dati dalla tabella
+function cancelladatidallatabella() {
+  const tbody = document.querySelector("#dataTable tbody");
+  if (tbody) 
+    tbody.innerHTML = "";
 }

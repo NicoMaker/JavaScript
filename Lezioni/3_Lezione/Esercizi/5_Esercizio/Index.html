@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestione Dati</title>
-    <script src="pop.js" defer></script>
     <link rel="stylesheet" href="style.css" />
+    <script src="Pop.js" defer></script>
   </head>
   <body>
-    <!-- Bottone Aggiungi Dato -->
+    <!-- Contenitore bottoni -->
     <div class="button-container">
       <button onclick="showPopUp()" class="btn-aggiungi">Aggiungi Dato</button>
+      <button onclick="cancelladatidallatabella()" class="btn-cancella">
+        Cancella Dati
+      </button>
     </div>
 
     <!-- Pop-up Form per l'inserimento -->
@@ -43,7 +46,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- I dati saranno inseriti qui -->
+          <!-- Qui verranno inseriti i dati -->
         </tbody>
       </table>
     </div>
