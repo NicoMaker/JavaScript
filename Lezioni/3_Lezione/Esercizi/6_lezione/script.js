@@ -17,6 +17,9 @@ addButton.addEventListener("click", () => {
     return;
   }
 
+  // Rimuovi numeri che non corrispondono alla tipologia selezionata
+  removeNumbersNotMatchingType(type);
+
   if (
     (type === "even" && number % 2 === 0) ||
     (type === "odd" && number % 2 !== 0)
@@ -42,6 +45,9 @@ addButton.addEventListener("click", () => {
     });
 
     console.log(type === "even" ? "Numeri Pari: " : "Numeri Dispari: ", number);
+
+    // Ordina la lista dopo aver aggiunto il numero
+    sortList(type);
   } else {
     alert(
       `Il numero non corrisponde alla tipologia selezionata (${
@@ -53,10 +59,49 @@ addButton.addEventListener("click", () => {
   inputNumber.value = "";
 });
 
+// Funzione per rimuovere i numeri che non corrispondono al tipo selezionato
+function removeNumbersNotMatchingType(type) {
+  const listItems = document.querySelectorAll(".number-item");
+  listItems.forEach((item) => {
+    const number = parseInt(item.innerHTML);
+    if (
+      (type === "even" && number % 2 !== 0) ||
+      (type === "odd" && number % 2 === 0)
+    ) {
+      sum -= number; // Sottrai il numero dalla somma
+      sumParagraph.textContent = `Somma: ${sum}`; // Aggiorna la somma
+      item.remove(); // Rimuovi l'elemento dalla lista
+    }
+  });
+}
+
+// Funzione per ordinare la lista in base alla tipologia selezionata
+function sortList(type) {
+  const listItems = Array.from(document.querySelectorAll(".number-item")),
+    sortedItems = listItems.sort((a, b) => {
+      const numA = parseInt(a.innerHTML),
+        numB = parseInt(b.innerHTML);
+
+      if (type === "even")
+        return numA % 2 === 0 ? numA - numB : 1; // Ordinamento per numeri pari
+      else return numA % 2 !== 0 ? numA - numB : 1; // Ordinamento per numeri dispari
+    });
+
+  // Aggiungi gli elementi ordinati di nuovo nella lista
+  numberList.innerHTML = "";
+  sortedItems.forEach((item) => numberList.appendChild(item));
+}
+
 // Funzione per svuotare la lista
 clearButton.addEventListener("click", () => {
   numberList.innerHTML = "";
   sum = 0; // Reset somma
   sumParagraph.textContent = `Somma: ${sum}`; // Mostra somma aggiornata
   console.log("Lista svuotata!");
+});
+
+// Aggiungi un evento per cambiare la categoria e rimuovere numeri non corrispondenti
+numberType.addEventListener("change", () => {
+  const type = numberType.value;
+  removeNumbersNotMatchingType(type);
 });
