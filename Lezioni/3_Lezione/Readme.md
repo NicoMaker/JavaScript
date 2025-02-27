@@ -1,3 +1,3 @@
 [Vai al file Generale](../../readme.md)
 
-# 3 Lezione 20 Febbraio 2025
+# 3 Lezione 27 Febbraio 2025
