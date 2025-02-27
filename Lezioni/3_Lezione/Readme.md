@@ -290,4 +290,4 @@ console.log(8 % 2); // Output: 0
 - [3 Esercizio](Esercizi/3_Esercizio/lesson00.js)
 - [4 Esercizio](Esercizi/4_Esercizio/fakeNodeStore//)
 - [5 Esercizio](Esercizi/5_Esercizio/Index.html)
-- [6 Esercizio](Esercizi/6_lezione/index.html)
+- [6 Esercizio](Esercizi/6_Esercizio/index.html)
