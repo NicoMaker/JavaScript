@@ -30,6 +30,9 @@ function addData(event) {
   cell2.innerHTML =
     '<span class="cestino" onclick="removeRow(this)">&#x1F5D1;</span>'; // Icona cestino
 
+  // Ordina la tabella dopo l'aggiunta dei dati
+  sortTable();
+
   // Chiudi il pop-up
   closePopUp();
 
@@ -41,4 +44,23 @@ function addData(event) {
 function removeRow(button) {
   const row = button.parentNode.parentNode;
   row.parentNode.removeChild(row);
+
+  // Ordina la tabella dopo aver rimosso una riga
+  sortTable();
+}
+
+// Funzione per ordinare la tabella
+function sortTable() {
+  const table = document.getElementById("dataTable"),
+    rows = Array.from(table.rows).slice(1); // Ottieni tutte le righe tranne l'intestazione
+  const sortedRows = rows.sort((rowA, rowB) => {
+    const cellA = rowA.cells[0].textContent,
+      cellB = rowB.cells[0].textContent;
+
+    // Confronta le celle in base al contenuto (puoi cambiare il criterio di ordinamento)
+    return cellA.localeCompare(cellB);
+  });
+
+  // Aggiungi le righe ordinate di nuovo alla tabella
+  sortedRows.forEach((row) => table.appendChild(row));
 }
