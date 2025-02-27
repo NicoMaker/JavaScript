@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestione Dati</title>
+    <script src="pop.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Bottone Aggiungi Dato -->
+    <div class="button-container">
+      <button onclick="showPopUp()" class="btn-aggiungi">Aggiungi Dato</button>
+    </div>
+
+    <!-- Pop-up Form per l'inserimento -->
+    <div id="popUp" class="pop-up">
+      <h3>Aggiungi Nuovo Dato</h3>
+      <form id="dataForm" onsubmit="addData(event)">
+        <input
+          type="number"
+          id="dataInput"
+          placeholder="Inserisci un numero"
+          required
+        />
+        <div class="error-message" id="error-message">
+          Il dato è obbligatorio!
+        </div>
+        <button type="submit" class="btn-aggiungi-dato">Aggiungi</button>
+        <button type="button" onclick="closePopUp()" class="btn-annulla">
+          Annulla
+        </button>
+      </form>
+    </div>
+
+    <!-- Tabella per visualizzare i dati -->
+    <div class="table-container">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>Valore</th>
+            <th>Azioni</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- I dati saranno inseriti qui -->
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestore Numeri Pari e Dispari</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Gestore Numeri Pari/Dispari</h2>
+      <input type="number" id="inputNumber" placeholder="Inserisci un numero" />
+      <select id="numberType">
+        <option value="even">Pari</option>
+        <option value="odd">Dispari</option>
+      </select>
+      <button id="addButton">Aggiungi</button>
+
+      <div class="button-container">
+        <button id="clearButton">Pulisci</button>
+      </div>
+
+      <ul id="numberList" class="number-list"></ul>
+
+      <p id="sum">Somma: 0</p>
+    </div>
+  </body>
+</html>
