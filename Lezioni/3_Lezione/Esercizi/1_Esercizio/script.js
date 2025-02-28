@@ -53,6 +53,12 @@ function StampaStringa() {
   for (let i = 0; i < word.length; i++) console.log(word[i]);
 }
 
+function StampaStingaof(){
+  const word = "JavaScript";
+
+  for (let lettera of word) console.log(lettera);
+}
+
 function Stampapari() {
   for (let i = 0; i <= 100; i += 2) console.log(i);
 }
@@ -86,7 +92,7 @@ function filtraPariDispari(array) {
 }
 
 function unisciFrasi(array) {
-  const risultato = array.reduce((acc, frase) => acc + " " + frase, "");
+  const risultato = array.reduce((acc, frase) => `${acc} ${frase}`);
   console.log(risultato);
 }
 
