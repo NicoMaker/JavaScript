@@ -20,7 +20,7 @@
 
 ---
 
-## 🔹 var
+## var
 
 - **Può essere riassegnata** (`reassignment` ✅)
 - **Può essere ridefinita** (`redeclaration` ✅)
@@ -49,7 +49,7 @@ console.log(età); // 25 ✅ (Ma dovrebbe essere accessibile solo nel blocco!)
 
 ---
 
-## 🔹 let
+## let
 
 - **Può essere riassegnata** (`reassignment` ✅)
 - **Non può essere ridefinita** (`redeclaration` ❌)
@@ -78,7 +78,7 @@ if (true) {
 
 ---
 
-## 🔹 const
+## const
 
 - **Non può essere riassegnata** (`reassignment` ❌)
 - **Non può essere ridefinita** (`redeclaration` ❌)
