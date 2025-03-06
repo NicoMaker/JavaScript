@@ -10,7 +10,6 @@ fetch("squadre.json")
       // Metodo per aggiungere un giocatore
       aggiungiGiocatore = (giocatore) => this.giocatori.push(giocatore);
 
-      // Metodo per mostrare la squadra senza logo e con un buon design
       mostraSquadra() {
         let html = `<div class="team"><h2>${this.nome}</h2><ul>`;
         for (let giocatore of this.giocatori)
@@ -26,7 +25,6 @@ fetch("squadre.json")
         ).innerHTML = `&copy; ${new Date().getFullYear()} Squadre di Calcio. Tutti i diritti riservati.`);
     }
 
-    // Creazione delle squadre dinamicamente
     const teamsDiv = document.getElementById("teams");
     let teamsHtml = "";
 
@@ -41,11 +39,9 @@ fetch("squadre.json")
       teamsHtml += squadra.mostraSquadra();
     });
 
-    // Visualizzazione delle squadre sulla pagina
     teamsDiv.innerHTML = teamsHtml;
 
-    // Richiamare il metodo footer per visualizzare il footer dopo aver creato tutte le squadre
-    const squadra = new Squadra(); // Puoi anche lasciare vuoto il nome, perché il footer non dipende dal nome
-    squadra.footer(); // Questo aggiornerà il footer
+    const squadra = new Squadra(); 
+    squadra.footer();
   })
   .catch((error) => console.error("Errore nel caricare il file JSON:", error));
