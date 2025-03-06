@@ -26,6 +26,15 @@
 
 - [Funzioni](#funzioni)
 
+- [Classi](#classi-in-javascript)
+  - [Sintassi](#sintassi-delle-classi)
+    - [Costruttore](#1-costruttore-constructor)
+    - [Metodi](#2-metodi)
+    - [Creazione Oggetti](#3-creazione-di-oggetti)
+    - [Ereditarietà nelle classi](#4-ereditarietà-nelle-classi)
+    - [Super](#5-super)
+    - [Getters e Setters](#6-getters-e-setters)
+
 - [Esercizi](#esercizi)
 
 ## **API**
@@ -307,6 +316,159 @@ In JavaScript, le funzioni sono blocchi di codice che possono essere eseguiti qu
    const sommaArrow = (a, b) => a + b;
    console.log(sommaArrow(2, 3)); // Stampa 5
    ```
+
+
+---
+
+## Classi in JavaScript
+
+Le **classi** in JavaScript sono un costrutto introdotto con ECMAScript 6 (ES6) che permette di creare oggetti e gestire l'ereditarietà in modo più intuitivo rispetto alla tradizionale funzione costruttrice. Le classi offrono una sintassi più semplice e leggibile per la creazione di oggetti e la gestione dei metodi associati.
+
+### Sintassi delle Classi
+
+Una classe viene definita utilizzando la parola chiave `class`, seguita dal nome della classe e da un corpo che contiene un costruttore e metodi. Ecco un esempio di base:
+
+```javascript
+class Persona {
+    // Costruttore per inizializzare le proprietà
+    constructor(nome, eta) {
+        this.nome = nome;
+        this.eta = eta;
+    }
+
+    // Metodo per presentarsi
+    saluta() {
+        console.log(`Ciao, mi chiamo ${this.nome} e ho ${this.eta} anni.`);
+    }
+}
+
+// Creazione di un oggetto 'persona1' della classe Persona
+const persona1 = new Persona('Marco', 25);
+persona1.saluta();  // Stampa: "Ciao, mi chiamo Marco e ho 25 anni."
+```
+
+### 1. **Costruttore (`constructor`)**
+
+Il **costruttore** è un metodo speciale di una classe che viene chiamato automaticamente quando un oggetto viene creato con la parola chiave `new`. Viene utilizzato per inizializzare le proprietà dell'oggetto.
+
+```javascript
+class Persona {
+    constructor(nome, eta) {
+        this.nome = nome;
+        this.eta = eta;
+    }
+}
+```
+
+### 2. **Metodi**
+
+I metodi di una classe sono funzioni che vengono associati agli oggetti creati dalla classe. Possono essere invocati sull'oggetto tramite la notazione punto.
+
+```javascript
+class Persona {
+    saluta() {
+        console.log(`Ciao, mi chiamo ${this.nome}`);
+    }
+}
+```
+
+### 3. **Creazione di Oggetti**
+
+Per creare un oggetto da una classe, si utilizza la parola chiave `new` seguita dal nome della classe.
+
+```javascript
+const persona1 = new Persona('Alice', 30);
+persona1.saluta();  // Stampa: "Ciao, mi chiamo Alice"
+```
+
+### 4. **Ereditarietà nelle Classi**
+
+Le classi in JavaScript supportano l'ereditarietà, il che significa che una classe può estendere un'altra classe. La parola chiave `extends` viene utilizzata per creare una classe che eredita le proprietà e i metodi di un'altra classe.
+
+```javascript
+class Studente extends Persona {
+    constructor(nome, eta, corso) {
+        // Chiamata al costruttore della classe base (Persona)
+        super(nome, eta);
+        this.corso = corso;
+    }
+
+    // Metodo aggiuntivo
+    saluta() {
+        console.log(`Ciao, mi chiamo ${this.nome} e studio ${this.corso}.`);
+    }
+}
+
+const studente1 = new Studente('Luca', 22, 'Informatica');
+studente1.saluta();  // Stampa: "Ciao, mi chiamo Luca e studio Informatica."
+```
+
+### 5. **Super()**
+
+La parola chiave `super` viene utilizzata per invocare il costruttore della classe base o per richiamare i metodi della classe genitore.
+
+```javascript
+class Animale {
+    constructor(nome) {
+        this.nome = nome;
+    }
+
+    parla() {
+        console.log(`${this.nome} fa un suono.`);
+    }
+}
+
+class Cane extends Animale {
+    constructor(nome, razza) {
+        super(nome);  // Chiamata al costruttore della classe Animale
+        this.razza = razza;
+    }
+
+    parla() {
+        console.log(`${this.nome} abbaia.`);
+    }
+}
+
+const cane1 = new Cane('Rex', 'Pastore Tedesco');
+cane1.parla();  // Stampa: "Rex abbaia."
+```
+
+### 6. **Getters e Setters**
+
+Le classi possono includere **getter** e **setter** per accedere o modificare le proprietà private di un oggetto.
+
+```javascript
+class Persona {
+    constructor(nome) {
+        this._nome = nome;
+    }
+
+    // Getter per ottenere il nome
+    get nome() {
+        return this._nome;
+    }
+
+    // Setter per cambiare il nome
+    set nome(nuovoNome) {
+        this._nome = nuovoNome;
+    }
+}
+
+const persona2 = new Persona('Giovanni');
+console.log(persona2.nome);  // Stampa: "Giovanni"
+persona2.nome = 'Francesco';  // Modifica il nome
+console.log(persona2.nome);  // Stampa: "Francesco"
+```
+
+---
+
+### Vantaggi delle Classi in JavaScript:
+
+- **Sintassi più chiara**: Le classi offrono una sintassi più intuitiva rispetto alle funzioni costruttrici.
+- **Integrazione con l'ereditarietà**: La sintassi `extends` rende l'ereditarietà più facile da implementare.
+- **Modularità e riusabilità**: Le classi permettono di definire oggetti e metodi riutilizzabili, migliorando l'organizzazione del codice.
+
+Le classi sono un concetto potente che rende JavaScript più simile ad altri linguaggi orientati agli oggetti, migliorando la gestione di oggetti complessi e la manutenzione del codice.
 
 ## Esercizi
 
