@@ -14,7 +14,7 @@ class Persona {
   }
 }
 
-aPerson = new Persona("Alessandro", "Arciero");
+const aPerson = new Persona("Alessandro", "Arciero");
 
 document.addEventListener("DOMContentLoaded", () => {
   const editbox = document.getElementById("editbox"),
