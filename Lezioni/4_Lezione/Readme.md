@@ -628,3 +628,4 @@ In sintesi:
 - [4 Esercizio](Esercizi/4_Esercizio)
 - [5 Esercizio](Esercizi/5_Esercizio/)
 - [6 Esercizio](Esercizi/6_Esercizio/)
+- [7 Esercizio](Esercizi/7_Esercizio/)

@@ -1,0 +1,246 @@
+[
+  {
+    "nome": "Paris Saint-Germain",
+    "giocatori": ["Lionel Messi", "Neymar", "Kylian Mbappé"]
+  },
+  {
+    "nome": "Real Madrid",
+    "giocatori": ["Karim Benzema", "Vinícius Júnior", "Luka Modrić"]
+  },
+  {
+    "nome": "Barcelona",
+    "giocatori": ["Robert Lewandowski", "Pedri", "Gavi"]
+  },
+  {
+    "nome": "Manchester City",
+    "giocatori": ["Erling Haaland", "Kevin De Bruyne", "Phil Foden"]
+  },
+  {
+    "nome": "Chelsea",
+    "giocatori": ["Raheem Sterling", "Mason Mount", "Thiago Silva"]
+  },
+  {
+    "nome": "Bayern Monaco",
+    "giocatori": ["Joshua Kimmich", "Thomas Müller", "Manuel Neuer"]
+  },
+  {
+    "nome": "Liverpool",
+    "giocatori": ["Mohamed Salah", "Sadio Mané", "Virgil van Dijk"]
+  },
+  {
+    "nome": "Arsenal",
+    "giocatori": ["Bukayo Saka", "Gabriel Jesus", "Martin Ødegaard"]
+  },
+  {
+    "nome": "Juventus",
+    "giocatori": ["Cristiano Ronaldo", "Paulo Dybala", "Giorgio Chiellini"]
+  },
+  {
+    "nome": "AC Milan",
+    "giocatori": ["Zlatan Ibrahimovic", "Theo Hernandez", "Ante Rebić"]
+  },
+  {
+    "nome": "Inter",
+    "giocatori": ["Romelu Lukaku", "Lautaro Martinez", "Samir Handanovic"]
+  },
+  {
+    "nome": "Ajax",
+    "giocatori": ["Antony", "Dusan Tadic", "Edson Álvarez"]
+  },
+  {
+    "nome": "Tottenham Hotspur",
+    "giocatori": ["Harry Kane", "Son Heung-min", "Pierre-Emile Højbjerg"]
+  },
+  {
+    "nome": "Borussia Dortmund",
+    "giocatori": ["Jude Bellingham", "Marco Reus", "Erling Haaland"]
+  },
+  {
+    "nome": "Lazio",
+    "giocatori": ["Ciro Immobile", "Sergej Milinković-Savić", "Luis Alberto"]
+  },
+  {
+    "nome": "Atalanta",
+    "giocatori": ["Duván Zapata", "Robin Gosens", "José Luis Palomino"]
+  },
+  {
+    "nome": "Boca Juniors",
+    "giocatori": [
+      "Carlos Tévez",
+      "Darío Benedetto",
+      "Guillermo Barros Schelotto"
+    ]
+  },
+  {
+    "nome": "River Plate",
+    "giocatori": ["Julián Álvarez", "Enzo Fernández", "Martín Demichelis"]
+  },
+  {
+    "nome": "Flamengo",
+    "giocatori": ["Gabigol", "Everton Ribeiro", "Bruno Henrique"]
+  },
+  {
+    "nome": "Vélez Sarsfield",
+    "giocatori": ["Thiago Almada", "Julián Fernández", "Lucas Pratto"]
+  },
+  {
+    "nome": "Santos",
+    "giocatori": ["Pelé", "Neymar", "Diego Ribas"]
+  },
+  {
+    "nome": "Al Ahly",
+    "giocatori": ["Mohamed Sherif", "Ali Maâloul", "Hossam Ashour"]
+  },
+  {
+    "nome": "Shanghai SIPG",
+    "giocatori": ["Hulk", "Óscar", "Wu Lei"]
+  },
+  {
+    "nome": "Sydney FC",
+    "giocatori": ["Milos Ninkovic", "Bobo", "Adam Le Fondre"]
+  },
+  {
+    "nome": "Al Hilal",
+    "giocatori": ["André Carrillo", "Salem Al-Dawsari", "Bafétimbi Gomis"]
+  },
+  {
+    "nome": "PSV Eindhoven",
+    "giocatori": ["Cody Gakpo", "Marco van Ginkel", "Luuk de Jong"]
+  },
+  {
+    "nome": "Benfica",
+    "giocatori": ["Darwin Núñez", "Enzo Fernández", "Gonçalo Ramos"]
+  },
+  {
+    "nome": "Portimonense",
+    "giocatori": ["Shoya Nakajima", "Paulinho", "Beto"]
+  },
+  {
+    "nome": "Club América",
+    "giocatori": ["Guillermo Ochoa", "Henry Martín", "Álvaro Fidalgo"]
+  },
+  {
+    "nome": "Tigres UANL",
+    "giocatori": ["André-Pierre Gignac", "Nahuel Guzmán", "Carlos Salcedo"]
+  },
+  {
+    "nome": "Zenit San Pietroburgo",
+    "giocatori": ["Artem Dzyuba", "Sardar Azmoun", "Malcom"]
+  },
+  {
+    "nome": "Dynamo Kyiv",
+    "giocatori": ["Viktor Tsyhankov", "Mykola Shaparenko", "Denys Popov"]
+  },
+  {
+    "nome": "Shakhtar Donetsk",
+    "giocatori": ["Marlos", "Taison", "Alan Patrick"]
+  },
+  {
+    "nome": "Celtic",
+    "giocatori": ["Callum McGregor", "Odsonne Édouard", "Scott Brown"]
+  },
+  {
+    "nome": "Rangers",
+    "giocatori": ["James Tavernier", "Alfredo Morelos", "Steven Davis"]
+  },
+  {
+    "nome": "Galatasaray",
+    "giocatori": ["Ryan Babel", "Radamel Falcao", "Jean Michaël Seri"]
+  },
+  {
+    "nome": "Fenerbahçe",
+    "giocatori": ["Enner Valencia", "Mesut Özil", "İrfan Can Kahveci"]
+  },
+  {
+    "nome": "Besiktas",
+    "giocatori": ["Cyle Larin", "Vincent Aboubakar", "Atiba Hutchinson"]
+  },
+  {
+    "nome": "AS Monaco",
+    "giocatori": ["Wissam Ben Yedder", "Kevin Volland", "Cesc Fàbregas"]
+  },
+  {
+    "nome": "Lyon",
+    "giocatori": ["Memphis Depay", "Tanguy Ndombele", "Houssem Aouar"]
+  },
+  {
+    "nome": "Marseille",
+    "giocatori": ["Dimitri Payet", "Arkadiusz Milik", "Mattéo Guendouzi"]
+  },
+  {
+    "nome": "Nice",
+    "giocatori": ["Kasper Dolberg", "Jean-Clair Todibo", "Amine Gouiri"]
+  },
+  {
+    "nome": "Salzburg",
+    "giocatori": ["Mohamed Camara", "Patson Daka", "Noah Okafor"]
+  },
+  {
+    "nome": "Austria Vienna",
+    "giocatori": ["Philipp Hosiner", "Maximilian Sax", "Dejan Ljubičić"]
+  },
+  {
+    "nome": "Legia Varsavia",
+    "giocatori": ["Mahir Emreli", "Filip Mladenović", "Artur Jędrzejczyk"]
+  },
+  {
+    "nome": "Dinamo Zagabria",
+    "giocatori": ["Mislav Oršić", "Luka Ivanušec", "Bruno Petković"]
+  },
+  {
+    "nome": "AEK Atene",
+    "giocatori": ["Marko Livaja", "Vasilis Barkas", "Lazaros Rota"]
+  },
+  {
+    "nome": "Olympiacos",
+    "giocatori": [
+      "Youssef El-Arabi",
+      "Mady Camara",
+      "Sokratis Papastathopoulos"
+    ]
+  },
+  {
+    "nome": "Spartak Mosca",
+    "giocatori": ["Jordan Larsson", "Alexander Sobolev", "Romário"]
+  },
+  {
+    "nome": "CSKA Mosca",
+    "giocatori": ["Nikola Vlasic", "Fedor Chalov", "Igor Akinfeev"]
+  },
+  {
+    "nome": "Villarreal",
+    "giocatori": ["Gerard Moreno", "Paco Alcácer", "Dani Parejo"]
+  },
+  {
+    "nome": "Valencia",
+    "giocatori": ["Carlos Soler", "José Gayà", "Maxi Gómez"]
+  },
+  {
+    "nome": "Getafe",
+    "giocatori": ["Enes Ünal", "Mauro Arambarri", "Damián Suárez"]
+  },
+  {
+    "nome": "Real Betis",
+    "giocatori": ["Nabil Fekir", "Willian José", "Sergio Canales"]
+  },
+  {
+    "nome": "Sevilla",
+    "giocatori": ["Youssef En-Nesyri", "Ivan Rakitić", "Jules Koundé"]
+  },
+  {
+    "nome": "Atlético Madrid",
+    "giocatori": ["Antoine Griezmann", "Luis Suárez", "Jan Oblak"]
+  },
+  {
+    "nome": "Santos Laguna",
+    "giocatori": ["Jonathan Rodríguez", "Julio Furch", "Oscar Murillo"]
+  },
+  {
+    "nome": "Pumas UNAM",
+    "giocatori": ["Juan Dinenno", "Felipe Mora", "Alan Mozo"]
+  },
+  {
+    "nome": "Atlas",
+    "giocatori": ["Julio Furch", "Julián Quiñones", "Camilo Vargas"]
+  }
+]
