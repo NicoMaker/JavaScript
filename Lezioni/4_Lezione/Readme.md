@@ -43,10 +43,12 @@
 
 - [Funzioni Asincrone / Sincrone](#funzioni-asincrone--sincrone)
 
-  - [Operazioi Sincrone (Sync)](#1-operazioni-sincrone-sync)
-  - [Operazioni Asincrone (Async)](#2-operazioni-asincrone-async)
-  - [Promise](#3-promise-promessa)
-  - [Async Await](#4-async--await)
+  - Opzioni
+  
+    - [Operazioi Sincrone (Sync)](#1-operazioni-sincrone-sync)
+    - [Operazioni Asincrone (Async)](#2-operazioni-asincrone-async)
+    - [Promise](#3-promise-promessa)
+    - [Async Await](#4-async--await)
 
 - [Esercizi](#esercizi)
 
