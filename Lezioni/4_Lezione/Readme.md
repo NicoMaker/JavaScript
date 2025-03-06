@@ -7,7 +7,6 @@
 - [API](#api)
 
   - [Endpoint](#endpoint)
-
   - [Metodi HTTP principali usati nelle API](#metodi-http-principali-usati-nelle-api)
 
     - [GET](#1-esempio-di-richiesta-get-ottenere-dati)
@@ -19,6 +18,7 @@
 
     - [Installazione di Axios](#installazione-di-axios)
     - [Metodi HTTP Principali usati nelle API](#metodi-http-principali-usati-nelle-api)
+
       - [GET](#1-esempio-di-richiesta-get-ottenere-dati-1)
       - [POST](#2-esempio-di-richiesta-post-inviare-dati-1)
       - [PUT](#3-esempio-di-richiesta-put-aggiornare-dati-1)
@@ -27,7 +27,9 @@
 - [Funzioni](#funzioni)
 
 - [Classi](#classi-in-javascript)
+
   - [Sintassi](#sintassi-delle-classi)
+
     - [Costruttore](#1-costruttore-constructor)
     - [Metodi](#2-metodi)
     - [Creazione Oggetti](#3-creazione-di-oggetti)
@@ -317,7 +319,6 @@ In JavaScript, le funzioni sono blocchi di codice che possono essere eseguiti qu
    console.log(sommaArrow(2, 3)); // Stampa 5
    ```
 
-
 ---
 
 ## Classi in JavaScript
@@ -330,21 +331,21 @@ Una classe viene definita utilizzando la parola chiave `class`, seguita dal nome
 
 ```javascript
 class Persona {
-    // Costruttore per inizializzare le proprietà
-    constructor(nome, eta) {
-        this.nome = nome;
-        this.eta = eta;
-    }
+  // Costruttore per inizializzare le proprietà
+  constructor(nome, eta) {
+    this.nome = nome;
+    this.eta = eta;
+  }
 
-    // Metodo per presentarsi
-    saluta() {
-        console.log(`Ciao, mi chiamo ${this.nome} e ho ${this.eta} anni.`);
-    }
+  // Metodo per presentarsi
+  saluta() {
+    console.log(`Ciao, mi chiamo ${this.nome} e ho ${this.eta} anni.`);
+  }
 }
 
 // Creazione di un oggetto 'persona1' della classe Persona
-const persona1 = new Persona('Marco', 25);
-persona1.saluta();  // Stampa: "Ciao, mi chiamo Marco e ho 25 anni."
+const persona1 = new Persona("Marco", 25);
+persona1.saluta(); // Stampa: "Ciao, mi chiamo Marco e ho 25 anni."
 ```
 
 ### 1. **Costruttore (`constructor`)**
@@ -353,10 +354,10 @@ Il **costruttore** è un metodo speciale di una classe che viene chiamato automa
 
 ```javascript
 class Persona {
-    constructor(nome, eta) {
-        this.nome = nome;
-        this.eta = eta;
-    }
+  constructor(nome, eta) {
+    this.nome = nome;
+    this.eta = eta;
+  }
 }
 ```
 
@@ -366,9 +367,9 @@ I metodi di una classe sono funzioni che vengono associati agli oggetti creati d
 
 ```javascript
 class Persona {
-    saluta() {
-        console.log(`Ciao, mi chiamo ${this.nome}`);
-    }
+  saluta() {
+    console.log(`Ciao, mi chiamo ${this.nome}`);
+  }
 }
 ```
 
@@ -377,8 +378,8 @@ class Persona {
 Per creare un oggetto da una classe, si utilizza la parola chiave `new` seguita dal nome della classe.
 
 ```javascript
-const persona1 = new Persona('Alice', 30);
-persona1.saluta();  // Stampa: "Ciao, mi chiamo Alice"
+const persona1 = new Persona("Alice", 30);
+persona1.saluta(); // Stampa: "Ciao, mi chiamo Alice"
 ```
 
 ### 4. **Ereditarietà nelle Classi**
@@ -387,20 +388,20 @@ Le classi in JavaScript supportano l'ereditarietà, il che significa che una cla
 
 ```javascript
 class Studente extends Persona {
-    constructor(nome, eta, corso) {
-        // Chiamata al costruttore della classe base (Persona)
-        super(nome, eta);
-        this.corso = corso;
-    }
+  constructor(nome, eta, corso) {
+    // Chiamata al costruttore della classe base (Persona)
+    super(nome, eta);
+    this.corso = corso;
+  }
 
-    // Metodo aggiuntivo
-    saluta() {
-        console.log(`Ciao, mi chiamo ${this.nome} e studio ${this.corso}.`);
-    }
+  // Metodo aggiuntivo
+  saluta() {
+    console.log(`Ciao, mi chiamo ${this.nome} e studio ${this.corso}.`);
+  }
 }
 
-const studente1 = new Studente('Luca', 22, 'Informatica');
-studente1.saluta();  // Stampa: "Ciao, mi chiamo Luca e studio Informatica."
+const studente1 = new Studente("Luca", 22, "Informatica");
+studente1.saluta(); // Stampa: "Ciao, mi chiamo Luca e studio Informatica."
 ```
 
 ### 5. **Super()**
@@ -409,28 +410,28 @@ La parola chiave `super` viene utilizzata per invocare il costruttore della clas
 
 ```javascript
 class Animale {
-    constructor(nome) {
-        this.nome = nome;
-    }
+  constructor(nome) {
+    this.nome = nome;
+  }
 
-    parla() {
-        console.log(`${this.nome} fa un suono.`);
-    }
+  parla() {
+    console.log(`${this.nome} fa un suono.`);
+  }
 }
 
 class Cane extends Animale {
-    constructor(nome, razza) {
-        super(nome);  // Chiamata al costruttore della classe Animale
-        this.razza = razza;
-    }
+  constructor(nome, razza) {
+    super(nome); // Chiamata al costruttore della classe Animale
+    this.razza = razza;
+  }
 
-    parla() {
-        console.log(`${this.nome} abbaia.`);
-    }
+  parla() {
+    console.log(`${this.nome} abbaia.`);
+  }
 }
 
-const cane1 = new Cane('Rex', 'Pastore Tedesco');
-cane1.parla();  // Stampa: "Rex abbaia."
+const cane1 = new Cane("Rex", "Pastore Tedesco");
+cane1.parla(); // Stampa: "Rex abbaia."
 ```
 
 ### 6. **Getters e Setters**
@@ -439,25 +440,25 @@ Le classi possono includere **getter** e **setter** per accedere o modificare le
 
 ```javascript
 class Persona {
-    constructor(nome) {
-        this._nome = nome;
-    }
+  constructor(nome) {
+    this._nome = nome;
+  }
 
-    // Getter per ottenere il nome
-    get nome() {
-        return this._nome;
-    }
+  // Getter per ottenere il nome
+  get nome() {
+    return this._nome;
+  }
 
-    // Setter per cambiare il nome
-    set nome(nuovoNome) {
-        this._nome = nuovoNome;
-    }
+  // Setter per cambiare il nome
+  set nome(nuovoNome) {
+    this._nome = nuovoNome;
+  }
 }
 
-const persona2 = new Persona('Giovanni');
-console.log(persona2.nome);  // Stampa: "Giovanni"
-persona2.nome = 'Francesco';  // Modifica il nome
-console.log(persona2.nome);  // Stampa: "Francesco"
+const persona2 = new Persona("Giovanni");
+console.log(persona2.nome); // Stampa: "Giovanni"
+persona2.nome = "Francesco"; // Modifica il nome
+console.log(persona2.nome); // Stampa: "Francesco"
 ```
 
 ---
