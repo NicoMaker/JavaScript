@@ -24,7 +24,7 @@
       - [PUT](#3-esempio-di-richiesta-put-aggiornare-dati-1)
       - [DELETE](#4-esempio-di-richiesta-delete-eliminare-dati-1)
 
-   - [Conclusioni](#conclusione)
+  - [Conclusioni](#conclusione)
 
 - [Funzioni](#funzioni)
 
@@ -40,6 +40,13 @@
     - [Getters e Setters](#6-getters-e-setters)
 
   - [Vantaggi](#vantaggi-delle-classi-in-javascript)
+
+- [Funzioni Asincrone / Sincrone](#funzioni-asincrone--sincrone)
+
+  - [Operazioi Sincrone (Sync)](#1-operazioni-sincrone-sync)
+  - [Operazioni Asincrone (Async)](#2-operazioni-asincrone-async)
+  - [Promise](#3-promise-promessa)
+  - [Async Await](#4-async--await)
 
 - [Esercizi](#esercizi)
 
@@ -474,6 +481,142 @@ console.log(persona2.nome); // Stampa: "Francesco"
 - **Modularità e riusabilità**: Le classi permettono di definire oggetti e metodi riutilizzabili, migliorando l'organizzazione del codice.
 
 Le classi sono un concetto potente che rende JavaScript più simile ad altri linguaggi orientati agli oggetti, migliorando la gestione di oggetti complessi e la manutenzione del codice.
+
+# Funzioni Asincrone / Sincrone
+
+In JavaScript, le operazioni possono essere eseguite in **modo sincrono (sync)** o **asincrono (async)**. Questi due approcci determinano come vengono gestite le operazioni, specialmente quando si tratta di operazioni che richiedono tempo, come richieste di rete o lettura di file. Ecco una spiegazione con esempi di entrambe le modalità.
+
+### 1. **Operazioni Sincrone (Sync)**
+
+Le operazioni **sincrone** vengono eseguite una dopo l'altra, nell'ordine in cui sono scritte nel codice. Ogni operazione aspetta che quella precedente sia completata prima di essere eseguita.
+
+#### Esempio di codice sincrono:
+
+```javascript
+console.log("Inizio");
+
+function operazioneSincrona() {
+  console.log("Operazione sincrona in corso...");
+}
+
+operazioneSincrona(); // Questo blocca il codice successivo fino al termine
+console.log("Fine");
+```
+
+**Output**:
+
+```
+Inizio
+Operazione sincrona in corso...
+Fine
+```
+
+Nel caso sopra, `operazioneSincrona()` viene eseguita prima di passare alla `console.log("Fine")`. JavaScript aspetta che la funzione finisca di eseguire prima di proseguire.
+
+### 2. **Operazioni Asincrone (Async)**
+
+Le operazioni **asincrone** permettono a JavaScript di continuare l'esecuzione del codice senza aspettare che un'operazione lunga (come una richiesta di rete) venga completata. Invece, una callback o una promessa (`Promise`) viene utilizzata per gestire il risultato dell'operazione quando è pronta.
+
+#### Esempio di codice asincrono con `setTimeout`:
+
+```javascript
+console.log("Inizio");
+
+setTimeout(function () {
+  console.log("Operazione asincrona in corso...");
+}, 2000); // Ritarda l'esecuzione di 2 secondi
+
+console.log("Fine");
+```
+
+**Output**:
+
+```
+Inizio
+Fine
+Operazione asincrona in corso...
+```
+
+Nel caso sopra, `setTimeout` è una funzione asincrona che simula un'operazione che richiede del tempo. Non blocca l'esecuzione del codice successivo, quindi `"Fine"` viene stampato subito dopo `"Inizio"`, mentre `"Operazione asincrona in corso..."` viene stampato dopo 2 secondi.
+
+### 3. **Promise (Promessa)**
+
+Le **promesse** sono un meccanismo per gestire operazioni asincrone in modo più controllato e leggibile. Una promessa è un oggetto che rappresenta il completamento (o il fallimento) di un'operazione asincrona.
+
+#### Esempio con `Promise`:
+
+```javascript
+function operazioneAsincrona() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Operazione completata");
+    }, 2000); // L'operazione richiede 2 secondi
+  });
+}
+
+console.log("Inizio");
+
+operazioneAsincrona()
+  .then((result) => {
+    console.log(result); // Stampa "Operazione completata" dopo 2 secondi
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+console.log("Fine");
+```
+
+**Output**:
+
+```
+Inizio
+Fine
+Operazione completata
+```
+
+In questo caso, `operazioneAsincrona` restituisce una `Promise`. Quando l'operazione è completata, la promessa viene "risolta" (`resolve`), e il risultato viene gestito tramite il metodo `.then()`. Nel frattempo, il codice continua a eseguire la parte successiva senza aspettare il completamento della promessa.
+
+### 4. **Async / Await**
+
+Le parole chiave **`async`** e **`await`** offrono un modo più semplice e leggibile di gestire operazioni asincrone, rendendo il codice che utilizza `Promise` più simile al codice sincrono, senza bloccare l'esecuzione.
+
+#### Esempio con `async` / `await`:
+
+```javascript
+async function eseguiOperazione() {
+  console.log("Inizio");
+
+  const risultato = await operazioneAsincrona();
+  console.log(risultato); // Stampa "Operazione completata" dopo 2 secondi
+
+  console.log("Fine");
+}
+
+eseguiOperazione();
+```
+
+**Output**:
+
+```
+Inizio
+Operazione completata
+Fine
+```
+
+In questo esempio, la funzione `eseguiOperazione` è dichiarata con `async`, il che significa che possiamo usare `await` all'interno di essa per "attendere" il completamento di `operazioneAsincrona()`. Mentre JavaScript attende la risposta della promessa, il flusso di esecuzione non viene bloccato e altre operazioni possono continuare.
+
+### Differenza tra **Sync** e **Async**:
+
+- **Sincrono**: Il codice viene eseguito riga per riga. Ogni operazione deve essere completata prima che la successiva venga eseguita.
+- **Asincrono**: Il codice non blocca l'esecuzione. Le operazioni che richiedono tempo (come chiamate di rete, operazioni su file, ecc.) vengono eseguite "in parallelo", e una callback o promessa viene utilizzata per gestire il risultato quando è pronto.
+
+---
+
+In sintesi:
+
+- **Sincrono**: Le operazioni vengono eseguite una per volta.
+- **Asincrono**: Le operazioni possono essere eseguite in parallelo, e il flusso di esecuzione non è bloccato. Si utilizzano callback, promesse o `async/await` per gestire il risultato.
 
 ## Esercizi
 
