@@ -1,5 +1,6 @@
 /* Impostazioni globali per il body */
-html, body {
+html,
+body {
   font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
@@ -9,6 +10,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
 }
 
 /* Header fisso con titolo centrato */
@@ -20,7 +22,7 @@ header {
   width: 100%;
   background: linear-gradient(to right, #00ff00, #00cc00);
   padding: 20px 0;
-  z-index: 10; /* Assicura che il titolo sia sopra gli altri contenuti */
+  z-index: 10;
   text-align: center;
 }
 
@@ -29,16 +31,43 @@ header h1 {
   font-size: 42px;
   font-weight: bold;
   color: transparent;
-  background: linear-gradient(to right, #0000ff, #ff0000, blue, #ff0000, #0000ff);
+  background: linear-gradient(
+    to right,
+    #0000ff,
+    #ff0000,
+    blue,
+    #ff0000,
+    #0000ff
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
   margin: 0;
 }
 
+/* Barra di ricerca */
+#searchInput {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 18px;
+  width: 80%;
+  max-width: 500px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  display: block; /* Assicura che l'input si comporti come un blocco */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#searchInput:focus {
+  border-color: #ffcc00;
+}
+
 /* Padding per il body per evitare che il contenuto venga coperto dal titolo fisso */
 body {
-  padding-top: 80px;
+  padding-top: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,6 +85,20 @@ body {
   padding: 20px;
   border-radius: 15px;
   z-index: 5;
+  box-sizing: border-box; /* Per evitare che il gap interferisca con la larghezza */
+  justify-content: flex-start; /* Allinea a sinistra quando ci sono squadre sparse */
+}
+
+/* Messaggio "Nessuna squadra trovata" centrato */
+#noTeamsMessage {
+  font-size: 24px;
+  color: #ff0000;
+  text-align: center;
+  margin-top: 20px;
+  width: 80%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Footer fisso */
@@ -88,9 +131,11 @@ footer p {
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   cursor: pointer;
+  flex-grow: 1; /* Per fare in modo che le card crescano uniformemente */
+  box-sizing: border-box;
 }
 
-/* Effetto hover sulle squadre */
+/* Effetto hover originale sulle squadre */
 .team:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -140,3 +185,23 @@ footer p {
   padding: 0;
   text-align: center;
 }
+
+/* Responsività */
+@media (min-width: 1200px) {
+  .team {
+    flex-basis: calc(33.33% - 20px); /* Tre squadre per riga con margini */
+  }
+}
+
+@media (max-width: 768px) {
+  .team {
+    flex-basis: calc(50% - 20px); /* Due squadre per riga su tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .team {
+    flex-basis: calc(100% - 20px); /* Una squadra per riga su mobile */
+  }
+}
+
