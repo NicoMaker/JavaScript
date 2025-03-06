@@ -44,7 +44,7 @@
 - [Funzioni Asincrone / Sincrone](#funzioni-asincrone--sincrone)
 
   - Opzioni
-  
+
     - [Operazioi Sincrone (Sync)](#1-operazioni-sincrone-sync)
     - [Operazioni Asincrone (Async)](#2-operazioni-asincrone-async)
     - [Promise](#3-promise-promessa)
@@ -627,3 +627,4 @@ In sintesi:
 - [3 Esercizio](Esercizi/3_Esercizio)
 - [4 Esercizio](Esercizi/4_Esercizio)
 - [5 Esercizio](Esercizi/5_Esercizio/)
+- [6 Esercizio](Esercizi/6_Esercizio/)
