@@ -622,3 +622,6 @@ In sintesi:
 
 - [1 Esercizio](Esercizi/1_Esercizio/Esempi.js)
 - [2 Esercizio](Esercizi/2_Esercizio/Object_Programming.js)
+- [3 Esercizio](Esercizi/3_Esercizio)
+- [4 Esercizio](Esercizi/4_Esercizio)
+- [5 Esercizio](Esercizi/5_Esercizio/)
