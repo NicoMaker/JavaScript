@@ -1,6 +1,6 @@
 body {
   font-family: "Arial", sans-serif;
-  background-color: #f4f4f9;
+  background: linear-gradient(to bottom, #ffcc00, #ff9900);
   margin: 0;
   padding: 0;
   display: flex;
@@ -14,9 +14,10 @@ body {
 h1 {
   text-align: center; /* Centra il testo orizzontalmente */
   font-size: 36px; /* Puoi regolare la dimensione del font a tuo piacimento */
-  color: #333;
   width: 100%; /* Assicura che l'elemento prenda tutta la larghezza disponibile */
   margin: 20px 0; /* Distanza superiore e inferiore */
+  color: red;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 #teams {
@@ -60,4 +61,19 @@ h1 {
 
 .player:hover {
   background-color: #e6e6ff;
+}
+
+/* team pari di colore gradiente  giallo */
+.team:nth-child(even) {
+  background: linear-gradient(to bottom, #ffff00, #ffcc00);
+}
+
+/* team dispari di colore gradiente  verde */
+.team:nth-child(odd) {
+  background: linear-gradient(to bottom, #00ff00, #00cc00);
+}
+
+.team h2 {
+  color: red;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
