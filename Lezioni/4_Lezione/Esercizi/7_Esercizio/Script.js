@@ -7,7 +7,6 @@ fetch("squadre.json")
         this.giocatori = [];
       }
 
-      // Metodo per aggiungere un giocatore
       aggiungiGiocatore = (giocatore) => this.giocatori.push(giocatore);
 
       mostraSquadra() {
