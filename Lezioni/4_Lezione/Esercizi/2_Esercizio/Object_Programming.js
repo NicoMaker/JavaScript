@@ -6,7 +6,7 @@ class Persona {
 }
 
 class Peoople {
-  constructor(name, età) {
+  constructor(name, eta) {
     this.name = name;
     this.eta = eta;
   }
