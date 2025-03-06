@@ -28,7 +28,6 @@ fetch("squadre.json")
     const teamsDiv = document.getElementById("teams");
     let teamsHtml = "";
 
-    // Ordinamento delle squadre in ordine alfabetico
     squadreData.sort((a, b) => a.nome.localeCompare(b.nome));
 
     squadreData.forEach((squadraData) => {
