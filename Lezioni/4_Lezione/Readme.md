@@ -24,6 +24,8 @@
       - [PUT](#3-esempio-di-richiesta-put-aggiornare-dati-1)
       - [DELETE](#4-esempio-di-richiesta-delete-eliminare-dati-1)
 
+   - [Conclusioni](#conclusione)
+
 - [Funzioni](#funzioni)
 
 - [Classi](#classi-in-javascript)
@@ -36,6 +38,8 @@
     - [Ereditarietà nelle classi](#4-ereditarietà-nelle-classi)
     - [Super](#5-super)
     - [Getters e Setters](#6-getters-e-setters)
+
+  - [Vantaggi](#vantaggi-delle-classi-in-javascript)
 
 - [Esercizi](#esercizi)
 
