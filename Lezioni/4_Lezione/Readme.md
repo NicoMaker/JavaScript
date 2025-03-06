@@ -478,3 +478,4 @@ Le classi sono un concetto potente che rende JavaScript più simile ad altri lin
 ## Esercizi
 
 - [1 Esercizio](Esercizi/1_Esercizio/Esempi.js)
+- [2 Esercizio](Esercizi/2_Esercizio/Object_Programming.js)

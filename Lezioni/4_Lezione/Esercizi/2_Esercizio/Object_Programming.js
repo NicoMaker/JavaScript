@@ -5,3 +5,14 @@ class Persona {
   }
 }
 
+class Peoople {
+
+    constructor(name,età){
+        this.name = name;
+        this.eta = eta;
+    }
+
+    descrizione() {
+        return `Mi chiamo ${this.name} e ho ${this.eta} anni.`
+    }
+}
