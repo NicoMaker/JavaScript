@@ -18,6 +18,12 @@ fetch("squadre.json")
         html += `</ul></div>`;
         return html;
       }
+
+      // Metodo per il footer
+      footer = () =>
+        (document.getElementById(
+          "footer"
+        ).innerHTML = `&copy; ${new Date().getFullYear()} Squadre di Calcio. Tutti i diritti riservati.`);
     }
 
     // Creazione delle squadre dinamicamente
@@ -37,5 +43,9 @@ fetch("squadre.json")
 
     // Visualizzazione delle squadre sulla pagina
     teamsDiv.innerHTML = teamsHtml;
+
+    // Richiamare il metodo footer per visualizzare il footer dopo aver creato tutte le squadre
+    const squadra = new Squadra(); // Puoi anche lasciare vuoto il nome, perché il footer non dipende dal nome
+    squadra.footer(); // Questo aggiornerà il footer
   })
   .catch((error) => console.error("Errore nel caricare il file JSON:", error));
