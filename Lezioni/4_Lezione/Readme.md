@@ -16,6 +16,7 @@
     - [DELETE](#4-esempio-di-richiesta-delete-eliminare-dati)
 
   - [Axios](https://axios-http.com/docs/intro)
+
     - [Installazione di Axios](#installazione-di-axios)
     - [Metodi HTTP Principali usati nelle API](#metodi-http-principali-usati-nelle-api)
       - [GET](#1-esempio-di-richiesta-get-ottenere-dati-1)
@@ -23,7 +24,11 @@
       - [PUT](#3-esempio-di-richiesta-put-aggiornare-dati-1)
       - [DELETE](#4-esempio-di-richiesta-delete-eliminare-dati-1)
 
-### **'API**
+- [Funzioni](#funzioni)
+
+- [Esercizi](#esercizi)
+
+### **API**
 
 Un'**API (Application Programming Interface)** è un insieme di regole e protocolli che permettono a diverse applicazioni software di comunicare tra loro. Nel contesto del web, le API vengono spesso usate per recuperare o inviare dati tra client (come un browser) e server.
 
@@ -251,6 +256,58 @@ axios
 
 Le API sono fondamentali per la comunicazione tra applicazioni. JavaScript fornisce strumenti potenti come `fetch()` e `Axios` per inviare e ricevere dati in modo asincrono.
 
-Vuoi provare un'API specifica o implementarla in un tuo progetto? 🚀
+# Funzioni
+
+In JavaScript, le funzioni sono blocchi di codice che possono essere eseguiti quando vengono chiamati. Possono accettare parametri (entrate), eseguire operazioni, e restituire un risultato (uscita). Ecco una descrizione base delle funzioni:
+
+1. **Dichiarazione della funzione**: Una funzione può essere dichiarata usando la parola chiave `function`, seguita dal nome della funzione e dalle parentesi tonde. All'interno delle parentesi puoi definire i parametri della funzione, se necessari.
+
+   ```javascript
+   function saluta(nome) {
+     console.log("Ciao, " + nome);
+   }
+   ```
+
+2. **Parametri e argomenti**: I parametri sono variabili che riceveranno i valori (argomenti) quando la funzione verrà chiamata.
+
+   ```javascript
+   function somma(a, b) {
+     return a + b;
+   }
+   ```
+
+3. **Chiamata della funzione**: Per eseguire una funzione, si usa il nome della funzione seguito da parentesi tonde, con gli argomenti dentro (se necessari).
+
+   ```javascript
+   saluta("Marco"); // Stampa "Ciao, Marco"
+   console.log(somma(5, 3)); // Stampa 8
+   ```
+
+4. **Valore di ritorno (return)**: Le funzioni possono restituire un valore tramite la parola chiave `return`. Questo valore può essere utilizzato successivamente.
+
+   ```javascript
+   function moltiplica(x, y) {
+     return x * y;
+   }
+   let risultato = moltiplica(4, 5); // risultato sarà 20
+   ```
+
+5. **Funzioni anonime**: Le funzioni possono anche essere dichiarate senza un nome. Vengono chiamate "funzioni anonime" e sono spesso utilizzate come argomenti per altre funzioni.
+
+   ```javascript
+   let salutaAnonimo = function (nome) {
+     console.log("Ciao, " + nome);
+   };
+   salutaAnonimo("Luca"); // Stampa "Ciao, Luca"
+   ```
+
+6. **Funzioni arrow (freccia)**: Un modo più conciso di scrivere una funzione. La sintassi è più compatta e viene spesso usata per le funzioni anonime.
+
+   ```javascript
+   const sommaArrow = (a, b) => a + b;
+   console.log(sommaArrow(2, 3)); // Stampa 5
+   ```
 
 # Esercizi
+
+- [1 Esercizio](Esercizi/1_Esercizio/Esempi.js)
