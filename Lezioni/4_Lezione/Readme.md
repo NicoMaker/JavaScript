@@ -28,13 +28,13 @@
 
 - [Esercizi](#esercizi)
 
-### **API**
+## **API**
 
 Un'**API (Application Programming Interface)** è un insieme di regole e protocolli che permettono a diverse applicazioni software di comunicare tra loro. Nel contesto del web, le API vengono spesso usate per recuperare o inviare dati tra client (come un browser) e server.
 
 Le API web più comuni si basano su **REST (Representational State Transfer)** e utilizzano il protocollo **HTTP** per eseguire operazioni su risorse remote.
 
-# Endpoint
+### Endpoint
 
 In termini generali, un "endpoint" rappresenta un punto di interazione o di connessione in un sistema. Questo concetto si applica in diversi ambiti, ma l'idea di base rimane la stessa: un punto dove qualcosa inizia o finisce, o dove avviene uno scambio.
 
@@ -256,7 +256,7 @@ axios
 
 Le API sono fondamentali per la comunicazione tra applicazioni. JavaScript fornisce strumenti potenti come `fetch()` e `Axios` per inviare e ricevere dati in modo asincrono.
 
-# Funzioni
+## Funzioni
 
 In JavaScript, le funzioni sono blocchi di codice che possono essere eseguiti quando vengono chiamati. Possono accettare parametri (entrate), eseguire operazioni, e restituire un risultato (uscita). Ecco una descrizione base delle funzioni:
 
@@ -308,6 +308,6 @@ In JavaScript, le funzioni sono blocchi di codice che possono essere eseguiti qu
    console.log(sommaArrow(2, 3)); // Stampa 5
    ```
 
-# Esercizi
+## Esercizi
 
 - [1 Esercizio](Esercizi/1_Esercizio/Esempi.js)
