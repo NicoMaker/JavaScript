@@ -110,8 +110,6 @@ input {
 #result {
   font-family: "Seven Segment", sans-serif;
 }
-; 
-
 /* Media Queries per dispositivi mobili */
 @media (max-width: 768px) {
   h1 {
@@ -197,7 +195,6 @@ h1 {
   background-color: #222;
 }
 
-
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 100px);
@@ -205,4 +202,95 @@ h1 {
   justify-content: center;
   margin-top: 240px; /* Abbassa i pulsanti per evitare che si sovrappongano al risultato */
   padding-top: 180px; /* Dà spazio sopra la griglia per compensare l'input fisso */
+}
+
+#toggleRadians {
+  font-size: 16-px; /* Dimensione leggibile */
+  font-weight: bold; /* Testo più chiaro */
+  text-align: center;
+  background: #007bff; /* Blu acceso */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#toggleRadians:hover {
+  background: #0056b3; /* Scuro al passaggio del mouse */
+}
+
+/* Media Queries per dispositivi mobili */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  input {
+    width: 80%;
+    height: 80px;
+    font-size: 35px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 80px);
+    grid-gap: 5px; /* Ridotto lo spazio tra i bottoni */
+  }
+
+  .btn {
+    width: 80px;
+    height: 80px;
+    font-size: 35px;
+  }
+
+  .special {
+    font-size: 35px;
+  }
+
+  .Cancella {
+    width: 80%;
+    height: 80px;
+    font-size: 35px;
+  }
+
+  #result {
+    font-size: 35px;
+  }
+}
+
+/* Media Queries per schermi ancora più piccoli */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 25px;
+  }
+
+  input {
+    width: 70%;
+    height: 70px;
+    font-size: 30px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 70px);
+    grid-gap: 4px; /* Ridotto ancora di più lo spazio tra i bottoni */
+  }
+
+  .btn {
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+  }
+
+  .special {
+    font-size: 30px;
+  }
+
+  .Cancella {
+    width: 70%;
+    height: 70px;
+    font-size: 30px;
+  }
+
+  #result {
+    font-size: 30px;
+  }
 }

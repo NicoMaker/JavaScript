@@ -25,9 +25,7 @@
       <div class="grid">
         <!-- Pulsanti operazioni speciali -->
         <button class="btn special" onclick="calculator.clear()">C</button>
-        <button class="btn special" onclick="calculator.appendOperator('**')">
-          xʸ
-        </button>
+        <button id="backspace" class="btn special">⬅</button>
         <button
           class="btn special"
           onclick="calculator.appendOperator('Math.sqrt(')"
@@ -64,6 +62,27 @@
         <button class="btn" onclick="calculator.appendNumber('.')">.</button>
         <button class="btn special" onclick="calculator.calculate()">=</button>
 
+        <!-- Parentesi e funzioni inverse -->
+        <button class="btn special" onclick="calculator.appendOperator('(')">
+          (
+        </button>
+        <button class="btn special" onclick="calculator.appendOperator(')')">
+          )
+        </button>
+
+        <button class="btn special" onclick="calculator.appendOperator('**')">
+          xʸ
+        </button>
+        <button class="btn special" onclick="calculator.appendOperator('!')">
+          !
+        </button>
+        <!-- Aggiungi il pulsante per pi greco -->
+        <button
+          class="btn special"
+          onclick="calculator.appendOperator('Math.PI')"
+        >
+          π
+        </button>
         <!-- Funzioni trigonometriche e logaritmi -->
         <button
           class="btn special"
@@ -84,13 +103,6 @@
           tan
         </button>
 
-        <!-- Parentesi e funzioni inverse -->
-        <button class="btn special" onclick="calculator.appendOperator('(')">
-          (
-        </button>
-        <button class="btn special" onclick="calculator.appendOperator(')')">
-          )
-        </button>
         <button
           class="btn special"
           onclick="calculator.appendOperator('Math.asin(')"
@@ -112,7 +124,11 @@
         </button>
 
         <!-- Funzione Rad/Deg -->
-        <button class="btn special" onclick="calculator.toggleRadians()">
+        <button
+          id="toggleRadians"
+          class="btn special"
+          onclick="calculator.toggleRadians()"
+        >
           Rad
           <br />
           Deg
@@ -137,16 +153,6 @@
           onclick="calculator.appendOperator('Math.log(')"
         >
           ln
-        </button>
-        <button class="btn special" onclick="calculator.appendOperator('!')">
-          !
-        </button>
-        <!-- Aggiungi il pulsante per pi greco -->
-        <button
-          class="btn special"
-          onclick="calculator.appendOperator('Math.PI')"
-        >
-          π
         </button>
       </div>
     </div>

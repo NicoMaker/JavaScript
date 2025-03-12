@@ -1,8 +1,14 @@
 class Calculator {
-  constructor(displayElement) {
+  constructor(displayElement, toggleButton, backspaceButton) {
     this.displayElement = displayElement;
+    this.toggleButton = toggleButton;
+    this.backspaceButton = backspaceButton;
     this.expression = "";
     this.isRadians = true;
+    this.updateToggleButton();
+
+    // Aggiungi event listener per il pulsante backspace
+    this.backspaceButton.addEventListener("click", () => this.backspace());
   }
 
   appendNumber(num) {
@@ -24,10 +30,18 @@ class Calculator {
 
   toggleRadians() {
     this.isRadians = !this.isRadians;
-    alert(this.isRadians ? "Modalità Radianti" : "Modalità Gradi");
+    this.updateToggleButton();
   }
 
-  // Funzione per calcolare il fattoriale
+  updateToggleButton = () =>
+    this.toggleButton.textContent = this.isRadians ? "Rad" : "Deg";
+
+
+  backspace() {
+    this.expression = this.expression.trim().slice(0, -1);
+    this.updateDisplay();
+  }
+  
   factorial(n) {
     if (n === 0 || n === 1) return 1;
     return n * this.factorial(n - 1);
@@ -60,28 +74,12 @@ class Calculator {
           /Math\.atan\(/g,
           `Math.atan(${this.isRadians ? "" : "Math.PI/180*"} `
         )
-        .replace(
-          /Math\.log10\(/g,
-          `Math.log10(` // logaritmo base 10
-        )
-        .replace(
-          /Math\.log\(/g,
-          `Math.log(` // logaritmo naturale (ln)
-        )
-        .replace(
-          /Math\.exp\(/g,
-          `Math.exp(` // esponenziale e^x
-        )
-        .replace(
-          /(\d+)\^(\d+)/g,
-          (match, base, exp) => `${base}**${exp}` // elevamento a potenza x^y
-        )
-        .replace(
-          /(\d+)!/g,
-          (match, num) => `${this.factorial(Number(num))}` // Fattoriale
-        );
+        .replace(/Math\.log10\(/g, `Math.log10(`)
+        .replace(/Math\.log\(/g, `Math.log(`)
+        .replace(/Math\.exp\(/g, `Math.exp(`)
+        .replace(/(\d+)\^(\d+)/g, (match, base, exp) => `${base}**${exp}`)
+        .replace(/(\d+)!/g, (match, num) => `${this.factorial(Number(num))}`);
 
-      // Gestire il logaritmo con base specificata
       if (this.expression.includes("log")) {
         let base = prompt("Inserisci la base per il logaritmo:", "10");
         if (base) {
@@ -91,13 +89,11 @@ class Calculator {
         }
       }
 
-      // Calcolare l'espressione
       let result = eval(expr);
 
-      // Verificare se il risultato è un numero intero
-      if (Number.isInteger(result))
-        this.expression = result.toString(); // Nessun decimale per interi
-      else this.expression = result.toFixed(2); // Due decimali per i numeri con parte frazionaria
+      this.expression = Number.isInteger(result)
+        ? result.toString()
+        : result.toFixed(2);
     } catch (error) {
       this.expression = "Errore";
     }
@@ -109,7 +105,10 @@ class Calculator {
   }
 }
 
-// Inizializza la calcolatrice dopo che il DOM è stato caricato
 document.addEventListener("DOMContentLoaded", () => {
-  window.calculator = new Calculator(document.getElementById("result"));
+  window.calculator = new Calculator(
+    document.getElementById("result"),
+    document.getElementById("toggleRadians"),
+    document.getElementById("backspace")
+  );
 });
