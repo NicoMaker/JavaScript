@@ -94,10 +94,10 @@ class Calculator {
       // Calcolare l'espressione
       let result = eval(expr);
 
-      // Limitare il risultato a 2 decimali
-      if (typeof result === "number") result = result.toFixed(2);
-
-      this.expression = result.toString();
+      // Verificare se il risultato è un numero intero
+      if (Number.isInteger(result))
+        this.expression = result.toString(); // Nessun decimale per interi
+      else this.expression = result.toFixed(2); // Due decimali per i numeri con parte frazionaria
     } catch (error) {
       this.expression = "Errore";
     }
