@@ -20,12 +20,11 @@
   <body>
     <div class="centrato">
       <h1>Calculator</h1>
-      <input type="text" id="result" disabled  placeholder="0"/>
+      <input type="text" id="result" disabled placeholder="0" />
 
       <div class="grid">
         <!-- Pulsanti operazioni speciali -->
-        <button class="btn special" onclick="calculator.clear()">
-          C</button>
+        <button class="btn special" onclick="calculator.clear()">C</button>
         <button class="btn special" onclick="calculator.appendOperator('**')">
           xʸ
         </button>
@@ -103,6 +102,13 @@
           onclick="calculator.appendOperator('Math.acos(')"
         >
           acos
+        </button>
+
+        <button
+          class="btn special"
+          onclick="calculator.appendOperator('Math.atan(')"
+        >
+          atan
         </button>
 
         <!-- Funzione Rad/Deg -->
