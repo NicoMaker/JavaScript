@@ -11,13 +11,9 @@ class Calculator {
   }
 
   appendOperator(operator) {
-    if (operator === "!") {
-      this.expression += operator;
-    } else if (operator.includes("(")) {
-      this.expression += operator;
-    } else {
-      this.expression += ` ${operator} `;
-    }
+    if (operator === "!") this.expression += operator;
+    else if (operator.includes("(")) this.expression += operator;
+    else this.expression += ` ${operator} `;
     this.updateDisplay();
   }
 
@@ -96,7 +92,12 @@ class Calculator {
       }
 
       // Calcolare l'espressione
-      this.expression = eval(expr).toString();
+      let result = eval(expr);
+
+      // Limitare il risultato a 2 decimali
+      if (typeof result === "number") result = result.toFixed(2);
+
+      this.expression = result.toString();
     } catch (error) {
       this.expression = "Errore";
     }

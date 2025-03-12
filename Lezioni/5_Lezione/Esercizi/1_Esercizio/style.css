@@ -110,23 +110,7 @@ input {
 #result {
   font-family: "Seven Segment", sans-serif;
 }
-
-/* Stile dell'input risultato */
-input {
-  width: 300px; /* Ridotto rispetto al valore precedente */
-  height: 60px; /* Ridotto rispetto al valore precedente */
-  text-align: center;
-  font-size: 35px; /* Ridotta la dimensione del font */
-  border: solid cyan 8px; /* Ridotto lo spessore del bordo */
-  border-radius: 60px; /* Ridotto il raggio del bordo */
-  margin-bottom: 20px;
-  font-family: "Seven Segment", sans-serif;
-  position: fixed; /* Fissa l'input del risultato */
-  top: 120px; /* Posiziona la barra del risultato sotto il titolo */
-  left: 50%;
-  transform: translateX(-50%); /* Centra l'input orizzontalmente */
-  z-index: 9; /* Assicura che l'input resti sopra al resto del contenuto */
-}
+; 
 
 /* Media Queries per dispositivi mobili */
 @media (max-width: 768px) {
@@ -211,4 +195,14 @@ input {
 
 h1 {
   background-color: #222;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-gap: 10px;
+  justify-content: center;
+  margin-top: 240px; /* Abbassa i pulsanti per evitare che si sovrappongano al risultato */
+  padding-top: 180px; /* Dà spazio sopra la griglia per compensare l'input fisso */
 }

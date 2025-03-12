@@ -24,7 +24,8 @@
 
       <div class="grid">
         <!-- Pulsanti operazioni speciali -->
-        <button class="btn special" onclick="calculator.clear()">C</button>
+        <button class="btn special" onclick="calculator.clear()">
+          C</button>
         <button class="btn special" onclick="calculator.appendOperator('**')">
           xʸ
         </button>
@@ -136,6 +137,13 @@
         </button>
         <button class="btn special" onclick="calculator.appendOperator('!')">
           !
+        </button>
+        <!-- Aggiungi il pulsante per pi greco -->
+        <button
+          class="btn special"
+          onclick="calculator.appendOperator('Math.PI')"
+        >
+          π
         </button>
       </div>
     </div>
