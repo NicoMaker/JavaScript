@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Delegation</title>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Seleziono il contenitore principale
+        const container = document.getElementById("container");
+
+        // Aggiungo un nuovo elemento dinamicamente
+        container.innerHTML = '<button id="dynamicBtn">Cliccami</button>';
+
+        // Soluzione corretta: Event Delegation
+        container.addEventListener("click", function (event) {
+          if (event.target.id === "dynamicBtn") {
+            alert("Bottone cliccato!");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<!-- ALTERNATIVA ---->
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Listener Dinamico</title>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const container = document.getElementById("container");
+
+        // Creazione dinamica con createElement
+        const btn = document.createElement("button");
+        btn.textContent = "Cliccami";
+        btn.id = "dynamicBtn";
+
+        // Aggiungo il listener subito dopo la creazione
+        btn.addEventListener("click", function () {
+          alert("Bottone cliccato!");
+        });
+
+        // Appendo il bottone nel container
+        container.appendChild(btn);
+      });
+    </script>
+  </body>
+</html>

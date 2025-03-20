@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrello Ordinato</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f8f8f8;
+      }
+
+      .container {
+        display: flex;
+        gap: 20px;
+      }
+
+      .column {
+        width: 300px;
+        min-height: 400px;
+        padding: 10px;
+        background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      .card {
+        background: #f1f1f1;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+      }
+
+      .total {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Colonna 1: Prodotti -->
+      <div class="column" id="colonna1">
+        <h2>Prodotti</h2>
+        <div class="card" data-price="50">
+          <h3>Prodotto 1</h3>
+          <p>Descrizione breve</p>
+          <p>Prezzo: €50</p>
+        </div>
+        <div class="card" data-price="30">
+          <h3>Prodotto 2</h3>
+          <p>Descrizione breve</p>
+          <p>Prezzo: €30</p>
+        </div>
+        <div class="card" data-price="20">
+          <h3>Prodotto 3</h3>
+          <p>Descrizione breve</p>
+          <p>Prezzo: €20</p>
+        </div>
+      </div>
+
+      <!-- Colonna 2: Carrello -->
+      <div class="column" id="colonna2">
+        <h2>Carrello</h2>
+        <p class="total">Totale: €<span id="totale">0</span></p>
+      </div>
+    </div>
+
+    <script>
+      let totale = 0;
+      const colonna1 = document.getElementById("colonna1");
+      const colonna2 = document.getElementById("colonna2");
+      const totaleSpan = document.getElementById("totale");
+
+      function aggiornaEventi() {
+        document.querySelectorAll(".card").forEach((card) => {
+          card.onclick = function () {
+            let prezzo = parseInt(this.getAttribute("data-price"));
+
+            if (this.parentNode.id === "colonna1") {
+              // Sposta nel carrello e aggiunge al totale
+              colonna2.appendChild(this);
+              totale += prezzo;
+            } else {
+              // Torna alla lista prodotti e sottrae dal totale
+              colonna1.appendChild(this);
+              totale -= prezzo;
+              ordinaColonna();
+            }
+
+            // Aggiorna il totale
+            totaleSpan.innerText = totale;
+          };
+        });
+      }
+
+      function ordinaColonna() {
+        let cards = Array.from(colonna1.getElementsByClassName("card"));
+
+        // Ordina le card per prezzo crescente
+        cards.sort((b, a) => {
+          return (
+            parseInt(a.getAttribute("data-price")) -
+            parseInt(b.getAttribute("data-price"))
+          );
+        });
+
+        // Riaggiunge le card alla colonna in ordine
+        cards.forEach((card) => colonna1.appendChild(card));
+
+        // Riassegna gli eventi
+        aggiornaEventi();
+      }
+
+      // Inizializza gli eventi al caricamento
+      aggiornaEventi();
+    </script>
+  </body>
+</html>

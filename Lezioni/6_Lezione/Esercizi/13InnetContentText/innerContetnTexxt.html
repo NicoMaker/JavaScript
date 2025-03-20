@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>innerText vs textContent</title>
+    <style>
+      .hidden {
+        display: none; /* Nasconde l'elemento */
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">Esempio innerText e textContent</h1>
+    <p id="paragraph">
+      Questo è un <span class="hidden">testo nascosto</span> paragrafo.
+    </p>
+    <button onclick="showInnerText()">Mostra innerText</button>
+    <button onclick="showTextContent()">Mostra textContent</button>
+
+    <p id="output"></p>
+
+    <script>
+      function showInnerText() {
+        let paragraph = document.getElementById("paragraph");
+        document.getElementById("output").innerText =
+          "innerText: " + paragraph.innerText;
+      }
+
+      function showTextContent() {
+        let paragraph = document.getElementById("paragraph");
+        document.getElementById("output").textContent =
+          "textContent: " + paragraph.textContent;
+      }
+    </script>
+  </body>
+</html>
