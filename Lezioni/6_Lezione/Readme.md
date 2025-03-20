@@ -25,5 +25,5 @@
 - [17 Esercizio](Esercizi/19Json/)
 - [18 Esercizio](Esercizi/50DOM/)
 - [19 Esercizio](Esercizi/999Exercises/)
-- [20 Esercizio](Esercizi/fakeNodeStore/)7
+- [20 Esercizio](Esercizi/fakeNodeStore/)
 - [21 Esercizio (Calcolatrice)](Esercizi/Calculator/)
