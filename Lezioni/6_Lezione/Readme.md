@@ -2,7 +2,7 @@
 
 # 6 Lezione 20 Marzo 2025
 
-- [Esercizi](#Esercizi)
+- [Esercizi](#esercizi)
 
 # Esercizi
 
