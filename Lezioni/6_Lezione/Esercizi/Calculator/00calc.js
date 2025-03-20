@@ -1,98 +1,78 @@
 document.addEventListener("DOMContentLoaded", function () {
   let display = document.getElementById("display"),
     buttons = document.querySelectorAll("button"),
-    operand1 = "",
-    operand2 = "",
-    operator = "",
-    isSecondOperand = false,
-    decimalAdded = false;
+    expression = "",
+    lastInput = "";
 
   buttons.forEach((button) => {
     button.addEventListener("click", function () {
       let value = this.textContent;
 
-      if (!isNaN(value)) addDigit(value);
-      else if (["+", "-", "×", "÷"].includes(value)) setOperator(value);
+      if (!isNaN(value) || value === ".") addDigit(value);
+      else if (["+", "-", "×", "÷"].includes(value)) addOperator(value);
       else if (value === "=") calculateResult();
       else if (value === "C") resetCalculator();
-      else if (value === ".") addDecimal();
     });
   });
 
   function addDigit(digit) {
-    if (!isSecondOperand) {
-      if (operand1 === "0") operand1 = digit;
-      else operand1 += digit;
-      display.textContent = operand1;
-    } else {
-      if (operand2 === "0") operand2 = digit;
-      else operand2 += digit;
-      display.textContent = operand1 + " " + operator + " " + operand2;
+    if (lastInput === "=") {
+      expression = "";
     }
+    expression += digit;
+    lastInput = digit;
+    display.textContent = expression;
   }
 
-  function setOperator(op) {
-    if (operand1 !== "") {
-      if (operand2 !== "") {
-        calculateResult();
-      }
-      operator = op;
-      isSecondOperand = true;
-      decimalAdded = false;
-      display.textContent = operand1 + " " + operator;
-    }
-  }
-
-  function addDecimal() {
-    if (!isSecondOperand && !decimalAdded) {
-      operand1 += ".";
-      decimalAdded = true;
-      display.textContent = operand1;
-    } else if (isSecondOperand && !decimalAdded) {
-      operand2 += ".";
-      decimalAdded = true;
-      display.textContent = operand1 + " " + operator + " " + operand2;
+  function addOperator(op) {
+    if (expression !== "" && !["+", "-", "×", "÷"].includes(lastInput)) {
+      expression += " " + op + " ";
+      lastInput = op;
+      display.textContent = expression;
     }
   }
 
   function calculateResult() {
-    if (operand1 !== "" && operand2 !== "" && operator !== "") {
-      let num1 = parseFloat(operand1),
-        num2 = parseFloat(operand2),
-        result;
+    try {
+      let tokens = expression.split(" "),
+        total = parseFloat(tokens[0]);
 
-      switch (operator) {
-        case "+":
-          result = num1 + num2;
-          break;
-        case "-":
-          result = num1 - num2;
-          break;
-        case "×":
-          result = num1 * num2;
-          break;
-        case "÷":
-          result = num2 !== 0 ? num1 / num2 : "Errore";
-          break;
-        default:
-          result = "Errore";
+      for (let i = 1; i < tokens.length; i += 2) {
+        let operator = tokens[i];
+        let num = parseFloat(tokens[i + 1]);
+
+        if (isNaN(num)) continue;
+
+        switch (operator) {
+          case "+":
+            total += num;
+            break;
+          case "-":
+            total -= num;
+            break;
+          case "×":
+            total *= num;
+            break;
+          case "÷":
+            if (num === 0) {
+              display.textContent = "Errore";
+              return;
+            }
+            total /= num;
+            break;
+        }
       }
-
-      display.textContent = result;
-      operand1 = result.toString();
-      operand2 = "";
-      operator = "";
-      isSecondOperand = false;
-      decimalAdded = operand1.includes(".");
+      display.textContent = total;
+      expression = total.toString();
+      lastInput = "=";
+    } catch (error) {
+      display.textContent = "Errore";
     }
   }
 
   function resetCalculator() {
-    operand1 = "";
-    operand2 = "";
-    operator = "";
-    isSecondOperand = false;
-    decimalAdded = false;
+    expression = "";
+    lastInput = "";
     display.textContent = "0";
   }
 });
