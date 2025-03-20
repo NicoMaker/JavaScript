@@ -23,6 +23,11 @@ class Calculator {
     this.updateDisplay();
   }
 
+  appendExp() {
+    this.expression += "Math.exp(1)";
+    this.updateDisplay();
+  }
+
   clear() {
     this.expression = "";
     this.updateDisplay();
@@ -34,14 +39,13 @@ class Calculator {
   }
 
   updateToggleButton = () =>
-    this.toggleButton.textContent = this.isRadians ? "Rad" : "Deg";
-
+    (this.toggleButton.textContent = this.isRadians ? "Rad" : "Deg");
 
   backspace() {
     this.expression = this.expression.trim().slice(0, -1);
     this.updateDisplay();
   }
-  
+
   factorial(n) {
     if (n === 0 || n === 1) return 1;
     return n * this.factorial(n - 1);
