@@ -12,6 +12,12 @@ class Calculator {
   }
 
   appendNumber(num) {
+    // Controlla se la lunghezza dell'espressione è già 20 caratteri
+    if (this.expression.length >= 20) {
+      alert("Hai raggiunto il limite massimo di 20 cifre.");
+      return;
+    }
+
     // Controlla se l'utente sta cercando di aggiungere un punto
     if (num === "." && this.expression.includes(".")) {
       alert("Non è possibile mettere due volte il punto.");
