@@ -12,6 +12,12 @@ class Calculator {
   }
 
   appendNumber(num) {
+    // Controlla se l'utente sta cercando di aggiungere un punto
+    if (num === "." && this.expression.includes(".")) {
+      alert("Non è possibile mettere due volte il punto.");
+      return;
+    }
+
     this.expression += num;
     this.updateDisplay();
   }
