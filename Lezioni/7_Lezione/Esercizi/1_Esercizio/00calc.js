@@ -18,10 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
   function addDigit(digit) {
     if (lastInput === "=") expression = "";
 
-    // Verifica se è stato già inserito un punto decimale nel numero
-    if (digit === "." && expression.includes(".")) {
-      alert("Non puoi inserire più di un punto decimale per numero!");
-      return;
+    // Se il digit è un punto, verifica se è già presente nel numero corrente
+    if (digit === ".") {
+      // Controlla l'ultimo numero inserito per evitare più di un punto decimale
+      let lastNumber = expression.split(/[\+\-\×\÷]/).pop();
+      if (lastNumber.includes(".")) {
+        alert("Non puoi inserire più di un punto decimale per numero!");
+        return;
+      }
     }
 
     // Controlla se la lunghezza del numero supera le 10 cifre
