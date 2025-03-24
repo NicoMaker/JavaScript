@@ -294,9 +294,3 @@ h1 {
     font-size: 30px;
   }
 }
-
-.btn.active {
-  background-color: #ff0000 !important; /* Cambia il colore in rosso */
-  color: white;
-  transform: scale(1.1); /* Ingrandisce leggermente il pulsante */
-}
