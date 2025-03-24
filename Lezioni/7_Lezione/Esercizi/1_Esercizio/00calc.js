@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
         total = parseFloat(tokens[0]);
 
       for (let i = 1; i < tokens.length; i += 2) {
-        let operator = tokens[i];
-        let num = parseFloat(tokens[i + 1]);
+        let operator = tokens[i],
+          num = parseFloat(tokens[i + 1]);
 
         if (isNaN(num)) continue;
 
@@ -73,7 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
             break;
         }
       }
-      display.textContent = total;
+      // Limita il risultato a 2 decimali
+      display.textContent = total.toFixed(2);
       expression = total.toString();
       lastInput = "=";
     } catch (error) {
