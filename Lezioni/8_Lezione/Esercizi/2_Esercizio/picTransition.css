@@ -1,0 +1,87 @@
+/* Stile generale */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #e0f7fa; /* Sfondo blu chiaro */
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Per centrare verticalmente */
+  margin: 0;
+}
+
+/* Contenitore centrale */
+.container {
+  max-width: 600px; /* Aumentato per un contenitore più grande */
+  width: 100%; /* Assicura che occupi tutta la larghezza disponibile */
+  margin: auto;
+  background: white; /* Contenitore bianco */
+  padding: 30px; /* Maggiore padding per rendere lo spazio più ampio */
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Titolo */
+h1 {
+  font-size: 24px; /* Aumentato la dimensione del testo per migliorare la leggibilità */
+  color: #1e88e5; /* Colore blu scuro */
+  margin-bottom: 20px; /* Distanza dal contenuto sottostante */
+}
+
+/* Contenitore immagini */
+#image-container {
+  width: 100%;
+  max-width: 500px; /* Aumentato per una larghezza maggiore */
+  height: 350px; /* Aumentato per una visibilità migliore */
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white; /* Sfondo bianco per il contenitore immagini */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile immagini */
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Mostra l'immagine intera senza tagliarla */
+  position: absolute;
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+}
+
+/* Mostra la prima immagine inizialmente */
+img:first-child {
+  opacity: 1;
+}
+
+/* Pulsante */
+button {
+  margin-top: 20px; /* Aumentato il margine superiore per una separazione più ampia */
+  padding: 12px 25px; /* Aumentato padding per un pulsante più grande */
+  font-size: 18px; /* Aumentata la dimensione del font */
+  color: white;
+  background: linear-gradient(45deg, #1976d2, #64b5f6); /* Gradiente blu */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background: linear-gradient(
+    45deg,
+    #64b5f6,
+    #1976d2
+  ); /* Gradiente blu più chiaro */
+}
