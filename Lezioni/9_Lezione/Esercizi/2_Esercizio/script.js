@@ -66,7 +66,7 @@ function toggleGame() {
   }
 }
 
-function resetGame() {
+function restartGame() {
   balls = [];
   gameRunning = false; // Ferma il gioco
   toggleButton.textContent = "Start"; // Cambia il testo del bottone
