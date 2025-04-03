@@ -29,9 +29,7 @@ function draw() {
     if (ball.y <= canvas.height * 0.25) {
       // Quando la pallina raggiunge il 3/4 dell'altezza del canvas
       // Crea una nuova pallina solo se il numero di palline è inferiore a 10
-      if (balls.length < maxBalls) {
-        createBall();
-      }
+      if (balls.length < maxBalls) createBall();
     }
 
     if (ball.y <= 0) {
@@ -68,6 +66,7 @@ function resetGame() {
   balls = [];
   gameRunning = false; // Ferma il gioco
   ctx.clearRect(0, 0, canvas.width, canvas.height); // Pulisce il canvas
+  update(); // Riavvia l'animazione (se il gioco è stato fermato)
 }
 
 // Avvia il gioco inizialmente (senza palline)
