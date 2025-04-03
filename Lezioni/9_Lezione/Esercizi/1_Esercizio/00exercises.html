@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Esercizi Canvas</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Esercizi con il Canvas</h1>
+
+    <!-- Esercizio 1: Hello Canvas -->
+    <h2>Esercizio 1: Hello Canvas</h2>
+    <canvas id="canvas1" width="200" height="100"></canvas>
+    <script>
+      const ctx1 = document.getElementById("canvas1").getContext("2d");
+      ctx1.font = "20px Arial"; // Imposta il font
+      ctx1.fillText("Hello Canvas!", 10, 50); // Scrive il testo
+    </script>
+
+    <!-- Esercizio 2: Rettangolo pieno -->
+    <h2>Esercizio 2: Rettangolo pieno</h2>
+    <canvas id="canvas2" width="200" height="100"></canvas>
+    <script>
+      const ctx2 = document.getElementById("canvas2").getContext("2d");
+      ctx2.fillStyle = "blue"; // Colore di riempimento
+      ctx2.fillRect(20, 20, 150, 50); // Disegna il rettangolo
+    </script>
+
+    <!-- Esercizio 3: Rettangolo con bordo -->
+    <h2>Esercizio 3: Rettangolo con bordo</h2>
+    <canvas id="canvas3" width="200" height="100"></canvas>
+    <script>
+      const ctx3 = document.getElementById("canvas3").getContext("2d");
+      ctx3.strokeStyle = "red"; // Colore del bordo
+      ctx3.strokeRect(30, 30, 100, 40); // Disegna il bordo del rettangolo
+    </script>
+
+    <!-- Esercizio 4: Cerchio pieno -->
+    <h2>Esercizio 4: Cerchio pieno</h2>
+    <canvas id="canvas4" width="200" height="100"></canvas>
+    <script>
+      const ctx4 = document.getElementById("canvas4").getContext("2d");
+      ctx4.beginPath(); // Inizia un nuovo percorso
+      ctx4.arc(100, 50, 30, 0, Math.PI * 2); // Disegna un cerchio
+      ctx4.fillStyle = "green";
+      ctx4.fill(); // Riempi il cerchio
+    </script>
+
+    <!-- Esercizio 5: Linea -->
+    <h2>Esercizio 5: Linea</h2>
+    <canvas id="canvas5" width="200" height="100"></canvas>
+    <script>
+      const ctx5 = document.getElementById("canvas5").getContext("2d");
+      ctx5.beginPath();
+      ctx5.moveTo(20, 20); // Punto iniziale
+      ctx5.lineTo(180, 80); // Punto finale
+      ctx5.strokeStyle = "black";
+      ctx5.stroke(); // Disegna la linea
+    </script>
+
+    <!-- Esercizio 6: Triangolo -->
+    <h2>Esercizio 6: Triangolo</h2>
+    <canvas id="canvas6" width="200" height="100"></canvas>
+    <script>
+      const ctx6 = document.getElementById("canvas6").getContext("2d");
+      ctx6.beginPath();
+      ctx6.moveTo(100, 20); // Primo punto
+      ctx6.lineTo(50, 80); // Secondo punto
+      ctx6.lineTo(150, 80); // Terzo punto
+      ctx6.closePath(); // Chiude il percorso
+      ctx6.fillStyle = "purple";
+      ctx6.fill();
+    </script>
+
+    <!-- Esercizio 7: Immagine -->
+    <h2>Esercizio 7: Immagine</h2>
+    <canvas id="canvas7" width="200" height="100"></canvas>
+    <script>
+      const ctx7 = document.getElementById("canvas7").getContext("2d");
+      const img = new Image(); // Crea l'oggetto immagine
+      img.onload = function () {
+        ctx7.drawImage(img, 0, 0, 200, 100); // Disegna l'immagine una volta caricata
+      };
+      img.src = "https://via.placeholder.com/200x100"; // URL immagine di esempio
+    </script>
+
+    <!-- Esercizio 8: Animazione base -->
+    <h2>Esercizio 8: Animazione base</h2>
+    <canvas id="canvas8" width="200" height="100"></canvas>
+    <script>
+      const ctx8 = document.getElementById("canvas8").getContext("2d");
+      let x = 0;
+      function draw() {
+        ctx8.clearRect(0, 0, 200, 100); // Pulisce il canvas
+        ctx8.beginPath();
+        ctx8.arc(x, 50, 10, 0, Math.PI * 2); // Cerchio che si muove
+        ctx8.fillStyle = "orange";
+        ctx8.fill();
+        x += 2; // Sposta il cerchio a destra
+        if (x < 200) requestAnimationFrame(draw); // Continua finché non esce dal canvas
+      }
+      draw();
+    </script>
+
+    <!-- Esercizio 9: Interazione mouse -->
+    <h2>Esercizio 9: Interazione mouse</h2>
+    <canvas id="canvas9" width="200" height="100"></canvas>
+    <script>
+      const ctx9 = document.getElementById("canvas9").getContext("2d");
+      document.getElementById("canvas9").addEventListener("mousemove", (e) => {
+        const rect = e.target.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        ctx9.clearRect(0, 0, 200, 100);
+        ctx9.beginPath();
+        ctx9.arc(x, y, 10, 0, Math.PI * 2);
+        ctx9.fillStyle = "cyan";
+        ctx9.fill();
+      });
+    </script>
+
+    <!-- Esercizio 10: Mini gioco (pallina che rimbalza) -->
+    <h2>Esercizio 10: Mini gioco - Pallina che rimbalza</h2>
+    <canvas id="canvas10" width="300" height="150"></canvas>
+    <script>
+      const ctx10 = document.getElementById("canvas10").getContext("2d");
+      let x10 = 150,
+        y10 = 75;
+      let dx = 2,
+        dy = 2;
+      function bounce() {
+        ctx10.clearRect(0, 0, 300, 150); // Pulisce il canvas
+        ctx10.beginPath();
+        ctx10.arc(x10, y10, 10, 0, Math.PI * 2);
+        ctx10.fillStyle = "red";
+        ctx10.fill();
+        // Cambia direzione se tocca i bordi
+        if (x10 + dx > 290 || x10 + dx < 10) dx = -dx;
+        if (y10 + dy > 140 || y10 + dy < 10) dy = -dy;
+        x10 += dx;
+        y10 += dy;
+        requestAnimationFrame(bounce);
+      }
+      bounce();
+    </script>
+  </body>
+</html>

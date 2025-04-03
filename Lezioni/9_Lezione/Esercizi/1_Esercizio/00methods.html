@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Metodi utili Canvas</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 30px;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #eee;
+      }
+      h2 {
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Metodi e proprietà utili di CanvasRenderingContext2D</h1>
+
+    <h2>Disegno e riempimento</h2>
+    <table>
+      <tr>
+        <th>Metodo / Proprietà</th>
+        <th>Descrizione</th>
+      </tr>
+      <tr>
+        <td>fillRect(x, y, w, h)</td>
+        <td>Disegna un rettangolo pieno</td>
+      </tr>
+      <tr>
+        <td>strokeRect(x, y, w, h)</td>
+        <td>Disegna solo il bordo del rettangolo</td>
+      </tr>
+      <tr>
+        <td>clearRect(x, y, w, h)</td>
+        <td>Pulisce una porzione del canvas</td>
+      </tr>
+      <tr>
+        <td>fill()</td>
+        <td>Riempe il path attuale</td>
+      </tr>
+      <tr>
+        <td>stroke()</td>
+        <td>Disegna il contorno del path</td>
+      </tr>
+      <tr>
+        <td>beginPath()</td>
+        <td>Inizia un nuovo path</td>
+      </tr>
+      <tr>
+        <td>closePath()</td>
+        <td>Chiude il path corrente</td>
+      </tr>
+    </table>
+
+    <h2>Tracciamento di forme</h2>
+    <table>
+      <tr>
+        <th>Metodo / Proprietà</th>
+        <th>Descrizione</th>
+      </tr>
+      <tr>
+        <td>moveTo(x, y)</td>
+        <td>Sposta il cursore di disegno a una nuova posizione</td>
+      </tr>
+      <tr>
+        <td>lineTo(x, y)</td>
+        <td>Disegna una linea dal punto corrente a (x, y)</td>
+      </tr>
+      <tr>
+        <td>arc(x, y, r, startAngle, endAngle)</td>
+        <td>Disegna un arco (o cerchio)</td>
+      </tr>
+      <tr>
+        <td>arcTo(x1, y1, x2, y2, radius)</td>
+        <td>Disegna un arco tangente tra due linee</td>
+      </tr>
+      <tr>
+        <td>quadraticCurveTo(cp1x, cp1y, x, y)</td>
+        <td>Curva di Bézier quadratica</td>
+      </tr>
+      <tr>
+        <td>bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)</td>
+        <td>Curva di Bézier cubica</td>
+      </tr>
+      <tr>
+        <td>rect(x, y, w, h)</td>
+        <td>Aggiunge un rettangolo al path</td>
+      </tr>
+    </table>
+
+    <h2>Stili e colori</h2>
+    <table>
+      <tr>
+        <th>Proprietà</th>
+        <th>Descrizione</th>
+      </tr>
+      <tr>
+        <td>fillStyle</td>
+        <td>Colore o gradiente per il riempimento</td>
+      </tr>
+      <tr>
+        <td>strokeStyle</td>
+        <td>Colore o gradiente per i bordi</td>
+      </tr>
+      <tr>
+        <td>lineWidth</td>
+        <td>Spessore delle linee</td>
+      </tr>
+      <tr>
+        <td>lineCap</td>
+        <td>Stile delle estremità delle linee: "butt", "round", "square"</td>
+      </tr>
+      <tr>
+        <td>lineJoin</td>
+        <td>Tipo di giunzione tra linee: "bevel", "round", "miter"</td>
+      </tr>
+      <tr>
+        <td>setLineDash([pattern])</td>
+        <td>Imposta il tratteggio delle linee</td>
+      </tr>
+      <tr>
+        <td>shadowColor</td>
+        <td>Colore dell'ombra</td>
+      </tr>
+      <tr>
+        <td>shadowBlur</td>
+        <td>Intensità dell’ombra</td>
+      </tr>
+      <tr>
+        <td>shadowOffsetX / Y</td>
+        <td>Spostamento dell’ombra sull’asse x/y</td>
+      </tr>
+    </table>
+
+    <h2>Testo</h2>
+    <table>
+      <tr>
+        <th>Metodo / Proprietà</th>
+        <th>Descrizione</th>
+      </tr>
+      <tr>
+        <td>font</td>
+        <td>Font da usare (es. "20px Arial")</td>
+      </tr>
+      <tr>
+        <td>fillText(text, x, y)</td>
+        <td>Scrive testo pieno nel canvas</td>
+      </tr>
+      <tr>
+        <td>strokeText(text, x, y)</td>
+        <td>Scrive solo il contorno del testo</td>
+      </tr>
+      <tr>
+        <td>textAlign</td>
+        <td>Allineamento orizzontale del testo</td>
+      </tr>
+      <tr>
+        <td>textBaseline</td>
+        <td>Allineamento verticale del testo</td>
+      </tr>
+      <tr>
+        <td>measureText(text)</td>
+        <td>Ritorna le dimensioni del testo</td>
+      </tr>
+    </table>
+
+    <h2>Immagini</h2>
+    <table>
+      <tr>
+        <th>Metodo</th>
+        <th>Descrizione</th>
+      </tr>
+      <tr>
+        <td>drawImage(img, dx, dy)</td>
+        <td>Disegna un'immagine nel canvas</td>
+      </tr>
+      <tr>
+        <td>drawImage(img, dx, dy, dw, dh)</td>
+        <td>Ridimensiona e disegna l’immagine</td>
+      </tr>
+    </table>
+
+    <h2>Animazione</h2>
+    <table>
+      <tr>
+        <th>Metodo / Concetto</th>
+        <th>Descrizione</th>
+      </tr>
+      <tr>
+        <td>requestAnimationFrame(callback)</td>
+        <td>
+          Chiama una funzione prima del prossimo repaint. Usato per animazioni
+          fluide e sincronizzate con il refresh del monitor (~60fps).
+        </td>
+      </tr>
+      <tr>
+        <td>cancelAnimationFrame(id)</td>
+        <td>
+          Ferma un’animazione precedentemente avviata con requestAnimationFrame.
+        </td>
+      </tr>
+      <tr>
+        <td>setInterval(callback, ms)</td>
+        <td>
+          Chiama una funzione ogni N millisecondi. Meno efficiente per le
+          animazioni rispetto a requestAnimationFrame.
+        </td>
+      </tr>
+      <tr>
+        <td>setTimeout(callback, ms)</td>
+        <td>
+          Chiama una funzione una volta dopo N millisecondi. A volte usato per
+          effetti di ritardo.
+        </td>
+      </tr>
+      <tr>
+        <td>performance.now()</td>
+        <td>
+          Ritorna un timestamp ad alta precisione, utile per calcolare il tempo
+          trascorso tra due frame.
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

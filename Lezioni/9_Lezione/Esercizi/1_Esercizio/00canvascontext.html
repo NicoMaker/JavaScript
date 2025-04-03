@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Canvas - getContext("2d") e opzioni</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      canvas {
+        border: 1px solid #333;
+        margin: 20px 0;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+      }
+      th {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Canvas - <code>getContext("2d")</code> e varianti</h1>
+
+    <h2>Sintassi base</h2>
+    <pre><code>const ctx = canvas.getContext("2d");</code></pre>
+
+    <h2>Sintassi con opzioni</h2>
+    <pre><code>const ctx = canvas.getContext("2d", {
+  alpha: false,
+  desynchronized: true,
+  willReadFrequently: true
+});</code></pre>
+
+    <h2>Tipi di contesto disponibili</h2>
+    <ul>
+      <li><code>"2d"</code> → disegno bidimensionale</li>
+      <li><code>"webgl"</code> → grafica 3D con WebGL</li>
+      <li><code>"webgl2"</code> → versione 2 di WebGL</li>
+      <li>
+        <code>"bitmaprenderer"</code> → disegno rapido di
+        <code>ImageBitmap</code>
+      </li>
+      <li><code>"xrpresent"</code> → rendering con WebXR (VR/AR)</li>
+    </ul>
+
+    <h2>Opzioni del contesto 2D</h2>
+    <table>
+      <tr>
+        <th>Opzione</th>
+        <th>Descrizione</th>
+      </tr>
+      <tr>
+        <td><code>alpha</code></td>
+        <td>Se <code>false</code>, disabilita il canale alfa (trasparenza)</td>
+      </tr>
+      <tr>
+        <td><code>desynchronized</code></td>
+        <td>
+          Riduce la latenza tra input e disegno (utile in giochi o lavagne)
+        </td>
+      </tr>
+      <tr>
+        <td><code>willReadFrequently</code></td>
+        <td>
+          Ottimizza le prestazioni se si usa spesso <code>getImageData()</code>
+        </td>
+      </tr>
+    </table>
+
+    <h2>Esempio: confronto alpha true / false</h2>
+    <p>
+      Canvas con <code>alpha: true</code> (default): sfondo trasparente, vedi il
+      colore dietro.
+    </p>
+    <canvas id="canvas1" width="300" height="100"></canvas>
+
+    <p>
+      Canvas con <code>alpha: false</code>: sfondo opaco (bianco o predefinito
+      dal browser).
+    </p>
+    <canvas id="canvas2" width="300" height="100"></canvas>
+
+    <script>
+      // Alpha: true (default)
+      const ctx1 = document.getElementById("canvas1").getContext("2d");
+      ctx1.fillStyle = "rgba(255, 0, 0, 0.5)";
+      ctx1.fillRect(50, 20, 200, 60);
+
+      // Alpha: false (canvas opaco)
+      const canvas2 = document.getElementById("canvas2");
+      const ctx2 = canvas2.getContext("2d", { alpha: false });
+      ctx2.fillStyle = "rgba(0, 0, 255, 0.5)";
+      ctx2.fillRect(50, 20, 200, 60);
+    </script>
+  </body>
+</html>
