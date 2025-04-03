@@ -1,0 +1,11 @@
+{
+  "maxBalls": 10,
+  "ballRadius": 20,
+  "ballSpeedMin": 2,
+  "ballSpeedMax": 4,
+  "ballColors": {
+    "hue": 360,
+    "saturation": 100,
+    "lightness": 50
+  }
+}
