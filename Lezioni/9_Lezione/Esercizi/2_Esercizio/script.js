@@ -3,6 +3,7 @@ const canvas = document.getElementById("gameCanvas"),
 let balls = [];
 const maxBalls = 10; // Limite massimo di palline
 let gameRunning = false; // Stato del gioco (avviato o fermo)
+const toggleButton = document.getElementById("toggleButton");
 
 function createBall() {
   // Crea una nuova pallina solo se il numero di palline è inferiore al limite massimo
@@ -54,9 +55,12 @@ function update() {
 }
 
 function toggleGame() {
-  if (gameRunning) gameRunning = false; // Ferma il gioco
-  else {
+  if (gameRunning) {
+    gameRunning = false; // Ferma il gioco
+    toggleButton.textContent = "Start"; // Cambia il testo del bottone
+  } else {
     gameRunning = true; // Avvia il gioco
+    toggleButton.textContent = "Stop"; // Cambia il testo del bottone
     createBall(); // Crea una pallina iniziale
     update(); // Avvia l'animazione delle palline
   }
@@ -65,6 +69,7 @@ function toggleGame() {
 function resetGame() {
   balls = [];
   gameRunning = false; // Ferma il gioco
+  toggleButton.textContent = "Start"; // Cambia il testo del bottone
   ctx.clearRect(0, 0, canvas.width, canvas.height); // Pulisce il canvas
   update(); // Riavvia l'animazione (se il gioco è stato fermato)
 }
