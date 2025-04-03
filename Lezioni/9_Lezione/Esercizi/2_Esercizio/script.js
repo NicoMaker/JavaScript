@@ -5,8 +5,8 @@ const maxBalls = 10; // Limite massimo di palline
 let gameRunning = false; // Stato del gioco (avviato o fermo)
 
 function createBall() {
+  // Crea una nuova pallina solo se il numero di palline è inferiore al limite massimo
   if (balls.length < maxBalls && gameRunning) {
-    // Crea una nuova pallina solo se non si è raggiunto il limite
     const ball = {
       x: Math.random() * canvas.width,
       y: canvas.height,
@@ -26,9 +26,16 @@ function draw() {
     ball.x += ball.angleX * ball.speed; // Nessun movimento orizzontale
     ball.y += ball.angleY * ball.speed; // Muove la pallina verso l'alto
 
+    if (ball.y <= canvas.height * 0.25) {
+      // Quando la pallina raggiunge il 3/4 dell'altezza del canvas
+      // Crea una nuova pallina solo se il numero di palline è inferiore a 10
+      if (balls.length < maxBalls) {
+        createBall();
+      }
+    }
+
     if (ball.y <= 0) {
       balls.splice(index, 1); // Rimuove la pallina che ha raggiunto la cima
-      createBall(); // Crea una nuova pallina sotto
       ball.y = canvas.height; // La pallina riparte dal basso
     }
 
