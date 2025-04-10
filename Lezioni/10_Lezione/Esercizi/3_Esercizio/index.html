@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distanza tra marker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css"
+    />
+    <script src="script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+  </head>
+  <body>
+    <div id="controls">
+      <button id="resetButton">Reset Tutto</button>
+      <button id="exportCSV">Esporta CSV</button>
+      <button id="saveMap">Salva Mappa</button>
+      <div id="distanceList">
+        <strong>Distanze calcolate:</strong>
+      </div>
+      <div id="totalDistance">
+        <strong>Distanza Totale:</strong> <span id="totalKm">0</span> km
+      </div>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-image/leaflet-image.js"></script>
+  </body>
+</html>

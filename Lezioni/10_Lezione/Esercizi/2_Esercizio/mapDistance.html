@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Distanza tra due marker</title>
+    <meta charset="utf-8" />
+    <style>
+      #map {
+        height: 100vh;
+        width: 100%;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      const map = L.map("map").setView([41.9028, 12.4964], 6); // Italia centrale
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+      }).addTo(map);
+
+      let markers = [];
+      let line = null;
+
+      function reset() {
+        markers.forEach((m) => map.removeLayer(m));
+        markers = [];
+        if (line) {
+          map.removeLayer(line);
+          line = null;
+        }
+      }
+
+      map.on("click", (e) => {
+        const marker = L.marker(e.latlng).addTo(map);
+        markers.push(marker);
+
+        if (markers.length === 2) {
+          const pointA = markers[0].getLatLng();
+          const pointB = markers[1].getLatLng();
+
+          // Disegna la linea
+          line = L.polyline([pointA, pointB], { color: "red" }).addTo(map);
+
+          // Calcola la distanza
+          const distance = pointA.distanceTo(pointB); // in metri
+          const popupText = `Distanza: ${(distance / 1000).toFixed(2)} km`;
+
+          // Mostra popup al centro della linea
+          const midPoint = L.latLng(
+            (pointA.lat + pointB.lat) / 2,
+            (pointA.lng + pointB.lng) / 2
+          );
+
+          L.popup().setLatLng(midPoint).setContent(popupText).openOn(map);
+        }
+
+        // Se hai già due marker, cliccando di nuovo si ricomincia
+        if (markers.length > 2) {
+          reset();
+          const marker = L.marker(e.latlng).addTo(map);
+          markers.push(marker);
+        }
+      });
+    </script>
+  </body>
+</html>
