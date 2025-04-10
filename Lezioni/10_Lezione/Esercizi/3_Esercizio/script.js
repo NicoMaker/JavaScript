@@ -28,9 +28,7 @@ function resetAll() {
 }
 
 // Funzione per generare un colore casuale
-function getRandomColor() {
-  return "#0000FF"; // Colore Blu fisso per il marker
-}
+const getRandomColor = () => "#0000FF"; // Colore Blu fisso per il marker
 
 // Funzione per effettuare il reverse geocoding
 async function reverseGeocode(lat, lng) {
