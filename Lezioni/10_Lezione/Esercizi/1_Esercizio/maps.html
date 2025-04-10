@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenStreetMap + Canvas</title>
+    <meta charset="utf-8" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      #container {
+        position: relative;
+        height: 100%;
+      }
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+      #mapCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 500;
+        pointer-events: none;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+  </head>
+  <body>
+    <div id="container">
+      <div id="map"></div>
+      <canvas id="mapCanvas"></canvas>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      const map = L.map("map").setView([45.95689, 12.66051], 13); // Pordenone
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+      }).addTo(map);
+
+      const canvas = document.getElementById("mapCanvas");
+      const container = document.getElementById("container");
+      const ctx = canvas.getContext("2d");
+
+      function resizeCanvas() {
+        canvas.width = container.clientWidth;
+        canvas.height = container.clientHeight;
+      }
+
+      // Ridimensiona e disegna al primo avvio
+      function drawCircle(lat, lng) {
+        resizeCanvas();
+        const point = map.latLngToContainerPoint([lat, lng]);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, 20, 0, 2 * Math.PI);
+        ctx.fillStyle = "rgba(255, 0, 0, 0.6)";
+        ctx.fill();
+      }
+
+      map.whenReady(() => {
+        drawCircle(45.95689, 12.66051);
+      });
+
+      // Redraw on map move or resize
+      map.on("move zoom", () => {
+        const center = map.getCenter();
+        drawCircle(center.lat, center.lng);
+      });
+
+      // Redraw on window resize
+      window.addEventListener("resize", () => {
+        const center = map.getCenter();
+        drawCircle(center.lat, center.lng);
+      });
+
+      // Click per spostare il cerchio e aggiungere un marker
+      map.on("click", (e) => {
+        L.marker(e.latlng)
+          .addTo(map)
+          .bindPopup(
+            `Hai cliccato: ${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(
+              5
+            )}`
+          )
+          .openPopup();
+        drawCircle(e.latlng.lat, e.latlng.lng);
+      });
+    </script>
+  </body>
+</html>

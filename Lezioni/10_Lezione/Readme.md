@@ -3,3 +3,5 @@
 # 10 Lezione 10 Aprile 2025
 
 ## Esercizi
+
+- [Esercizio 1](Esercizi/1_Esercizio/)
