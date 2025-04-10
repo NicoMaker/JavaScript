@@ -27,8 +27,13 @@ function resetAll() {
     "<strong>Distanze calcolate:</strong>";
 }
 
-// Funzione per generare un colore casuale
-const getRandomColor = () => "#0000FF"; // Colore Blu fisso per il marker
+// Funzione per generare un colore casuale o da scegliere
+const getRandomColor = () => {
+  const color = prompt(
+    "Inserisci il colore della linea in formato esadecimale (es. #FF0000 per rosso):"
+  );
+  return color || "#0000FF"; // Se l'utente non inserisce un colore, verrà usato il blu
+};
 
 // Funzione per effettuare il reverse geocoding
 async function reverseGeocode(lat, lng) {
@@ -85,7 +90,7 @@ map.on("click", async (e) => {
     const locationA = currentMarkers[0].locationName;
     const locationB = currentMarkers[1].locationName;
 
-    const color = getRandomColor(); // Colore Blu fisso per la linea
+    const color = getRandomColor(); // Colore scelto per la linea
     const line = L.polyline([pointA, pointB], { color }).addTo(map);
     allLines.push(line);
 
@@ -95,19 +100,25 @@ map.on("click", async (e) => {
     });
 
     const distanceMeters = pointA.distanceTo(pointB);
-    const distanceKm = (distanceMeters / 1000).toFixed(2);
-    const distanceMiles = (distanceMeters / 1609.34).toFixed(2);
+    let distance = distanceMeters / 1000;
+    let unit = "km";
+    if (distance < 1) {
+      distance = distanceMeters;
+      unit = "m";
+    }
+
+    const distanceFormatted = distance.toFixed(2);
 
     const midPoint = L.latLng(
       (pointA.lat + pointB.lat) / 2,
       (pointA.lng + pointB.lng) / 2
     );
 
-    const popupText = `Distanza: ${distanceKm} km (${distanceMiles} mi)`;
+    const popupText = `Distanza: ${distanceFormatted} ${unit}`;
     L.popup().setLatLng(midPoint).setContent(popupText).openOn(map);
 
     // Aggiungi la distanza alla somma totale
-    totalDistance += parseFloat(distanceKm);
+    totalDistance += parseFloat(distanceFormatted);
     document.getElementById("totalKm").textContent = totalDistance.toFixed(2);
 
     distanceCount++;
@@ -116,15 +127,15 @@ map.on("click", async (e) => {
     listEntry.innerHTML = ` 
       <strong>${distanceCount})</strong>
       ${locationA} → ${locationB}<br>
-      ${distanceKm} km (${distanceMiles} mi)
+      ${distanceFormatted} ${unit}
       <button class="delete-btn" data-id="${distanceCount}">🗑️</button>
     `;
     document.getElementById("distanceList").appendChild(listEntry);
 
     distanceData.push({
       id: distanceCount,
-      km: distanceKm,
-      mi: distanceMiles,
+      distanceFormatted,
+      unit,
       locationA,
       locationB,
       startLat: pointA.lat.toFixed(5),
@@ -134,6 +145,11 @@ map.on("click", async (e) => {
     });
 
     currentMarkers = [];
+  }
+
+  // Resetta dopo il terzo click
+  if (currentMarkers.length === 3) {
+    resetAll();
   }
 });
 
@@ -146,8 +162,8 @@ document.getElementById("exportCSV").addEventListener("click", () => {
       "ID",
       "Luogo A",
       "Luogo B",
-      "Distanza (km)",
-      "Distanza (mi)",
+      "Distanza",
+      "Unità di Misura",
       "Lat A",
       "Lng A",
       "Lat B",
@@ -157,8 +173,8 @@ document.getElementById("exportCSV").addEventListener("click", () => {
       d.id,
       d.locationA,
       d.locationB,
-      d.km,
-      d.mi,
+      d.distanceFormatted,
+      d.unit,
       d.startLat,
       d.startLng,
       d.endLat,
@@ -198,7 +214,6 @@ document.getElementById("saveMap").addEventListener("click", () => {
 // Funzione per resettare la mappa
 document.getElementById("resetButton").addEventListener("click", resetAll);
 
-// Gestire l'eliminazione delle distanze specifiche
 // Gestire l'eliminazione delle distanze specifiche
 document.getElementById("distanceList").addEventListener("click", (e) => {
   if (e.target && e.target.classList.contains("delete-btn")) {
@@ -243,7 +258,7 @@ document.getElementById("distanceList").addEventListener("click", (e) => {
     );
 
     // Aggiorna la distanza totale
-    totalDistance -= parseFloat(distanceToRemove.km);
+    totalDistance -= parseFloat(distanceToRemove.distanceFormatted);
     document.getElementById("totalKm").textContent = totalDistance.toFixed(2);
 
     // Decrementa il contatore e riorganizza le voci
@@ -253,10 +268,10 @@ document.getElementById("distanceList").addEventListener("click", (e) => {
     distanceData.forEach((entry, index) => {
       const listEntry = document.createElement("div");
       listEntry.className = "distance-entry";
-      listEntry.innerHTML = `
+      listEntry.innerHTML = ` 
           <strong>${index + 1})</strong>
           ${entry.locationA} → ${entry.locationB}<br>
-          ${entry.km} km (${entry.mi} mi)
+          ${entry.distanceFormatted} ${entry.unit}
           <button class="delete-btn" data-id="${entry.id}">🗑️</button>
         `;
       document.getElementById("distanceList").appendChild(listEntry);
