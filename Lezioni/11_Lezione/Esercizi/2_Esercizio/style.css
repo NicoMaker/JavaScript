@@ -1,0 +1,7 @@
+body {
+  padding: 30px;
+}
+.form-control:invalid,
+.form-select:invalid {
+  box-shadow: none;
+}
