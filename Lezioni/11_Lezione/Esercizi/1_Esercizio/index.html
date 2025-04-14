@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Generatore Codice Fiscale</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Generatore Codice Fiscale</h1>
+      <form id="fiscalForm">
+        <input type="text" placeholder="Nome" id="nome" required />
+        <input type="text" placeholder="Cognome" id="cognome" required />
+        <input type="date" id="dataNascita" required />
+        <select id="sesso">
+          <option value="M">Maschio</option>
+          <option value="F">Femmina</option>
+        </select>
+        <input
+          type="text"
+          id="comune"
+          placeholder="Comune di nascita"
+          required
+          autocomplete="off"
+        />
+        <div id="suggestions" class="suggestions"></div>
+        <button type="submit">Genera</button>
+      </form>
+      <div id="risultato"></div>
+    </div>
+  </body>
+</html>

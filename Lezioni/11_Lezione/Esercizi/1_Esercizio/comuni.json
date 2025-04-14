@@ -1,0 +1,10 @@
+[
+  { "nome": "Roma", "codice": "H501" },
+  { "nome": "Milano", "codice": "F205" },
+  { "nome": "Napoli", "codice": "F839" },
+  { "nome": "Torino", "codice": "L219" },
+  { "nome": "Palermo", "codice": "G273" },
+  { "nome": "Genova", "codice": "D969" },
+  { "nome": "Bologna", "codice": "A944" },
+  { "nome": "Firenze", "codice": "D612" }
+]
