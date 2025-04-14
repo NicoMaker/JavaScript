@@ -1,7 +1,7 @@
+
 const form = document.getElementById("userForm");
 const submitBtn = document.getElementById("submitBtn");
 
-// Un oggetto campi che contengono le regex per validare i campi
 const campi = {
   nome: { regex: /^[a-zA-Zàèéìòù' ]{2,30}$/ },
   cognome: { regex: /^[a-zA-Zàèéìòù' ]{2,30}$/ },
@@ -11,17 +11,14 @@ const campi = {
   email: { regex: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/ },
 };
 
-// Funzione per sanificare l'input
 function sanitize(input) {
   return input.replace(/<[^>]*>/g, "").trim();
 }
 
-// Funzione per validare un campo
 function validateCampo(id) {
   const input = document.getElementById(id);
   const cleanedValue = sanitize(input.value);
   const { regex } = campi[id];
-
   if (!regex.test(cleanedValue)) {
     input.classList.add("is-invalid");
     input.classList.remove("is-valid");
@@ -33,7 +30,6 @@ function validateCampo(id) {
   }
 }
 
-// Funzione per validare la provincia
 function validateProvincia() {
   const select = document.getElementById("provincia");
   if (!select.value) {
@@ -47,14 +43,12 @@ function validateProvincia() {
   }
 }
 
-// Funzione per abilitare/disabilitare il bottone di invio
 function checkFormValid() {
   const validCampi = Object.keys(campi).every((id) => validateCampo(id));
   const validProv = validateProvincia();
   submitBtn.disabled = !(validCampi && validProv);
 }
 
-// Ascolto degli input per la validazione in tempo reale
 Object.keys(campi).forEach((id) => {
   const input = document.getElementById(id);
   input.addEventListener("input", () => {
@@ -63,31 +57,44 @@ Object.keys(campi).forEach((id) => {
   });
 });
 
-// Ascolto del cambio di provincia
 document.getElementById("provincia").addEventListener("change", () => {
   validateProvincia();
   checkFormValid();
 });
 
-// Gestione dell'invio del form
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-
   Object.keys(campi).forEach((id) => {
     const input = document.getElementById(id);
     input.value = sanitize(input.value);
   });
 
-  alert("Form inviato con successo!");
-  form.reset();
-  submitBtn.disabled = true;
-
-  document
-    .querySelectorAll(".is-valid, .is-invalid")
-    .forEach((el) => el.classList.remove("is-valid", "is-invalid"));
+  fetch("/submit-form", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      nome: document.getElementById("nome").value,
+      cognome: document.getElementById("cognome").value,
+      cellulare: document.getElementById("cellulare").value,
+      indirizzo: document.getElementById("indirizzo").value,
+      cf: document.getElementById("cf").value,
+      email: document.getElementById("email").value,
+      provincia: document.getElementById("provincia").value,
+    }),
+  })
+    .then((res) => res.text())
+    .then((data) => {
+      alert(data);
+      form.reset();
+      submitBtn.disabled = true;
+    })
+    .catch((err) => {
+      console.error("Errore:", err);
+    });
 });
 
-// Popolamento della select delle province da un file JSON esterno
 fetch("province.json")
   .then((response) => response.json())
   .then((province) => {
