@@ -13,3 +13,4 @@
 - [9 Lezione](Lezioni/9_Lezione/Readme.md)
 - [10 Lezione](Lezioni/10_Lezione/Readme.md)
 - [11 Lezione](Lezioni/11_Lezione/Readme.md)
+- [12 Lezione](Lezioni/12_Lezione/Readme.md)
