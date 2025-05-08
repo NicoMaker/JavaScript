@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dati Registrati</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dati Registrati</h1>
+        <a href="index.html" class="back-link">Torna al Modulo</a>
+
+        <div class="table-container">
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Cognome</th>
+                        <th>Indirizzo</th>
+                        <th>Codice Fiscale</th>
+                        <th>Data di Nascita</th>
+                        <th>Comune</th>
+                        <th>Provincia</th>
+                        <th>Telefono</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Data will be inserted here dynamically -->
+                </tbody>
+            </table>
+            <div id="noData" class="no-data">Nessun dato disponibile</div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+</body>
+
+</html>
