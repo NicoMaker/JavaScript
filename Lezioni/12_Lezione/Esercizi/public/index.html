@@ -150,6 +150,11 @@
                 </div>
                 <div class="modal-body">
                     <div class="table-container">
+                        <div class="table-actions">
+                            <button id="deleteAllBtn" class="delete-all-btn">
+                                <i class="fas fa-trash-alt"></i> Elimina tutti i dati
+                            </button>
+                        </div>
                         <table id="dataTable">
                             <thead>
                                 <tr>
@@ -162,12 +167,29 @@
                                     <th>Provincia</th>
                                     <th>Telefono</th>
                                     <th>Email</th>
+                                    <th>Azioni</th>
                                 </tr>
                             </thead>
                             <tbody id="tableBody"></tbody>
                         </table>
                         <div id="noData" class="no-data">Nessun dato disponibile</div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal di conferma eliminazione -->
+        <div id="confirmDeleteModal" class="modal">
+            <div class="modal-content confirm-modal">
+                <span class="close" id="closeConfirmModal">&times;</span>
+                <div class="warning-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h2>Conferma Eliminazione</h2>
+                <p>Sei sicuro di voler eliminare tutti i dati? Questa azione non può essere annullata.</p>
+                <div class="confirm-actions">
+                    <button id="confirmDeleteBtn" class="confirm-btn">Elimina</button>
+                    <button id="cancelDeleteBtn" class="cancel-btn">Annulla</button>
                 </div>
             </div>
         </div>
