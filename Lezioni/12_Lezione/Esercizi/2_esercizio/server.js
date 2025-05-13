@@ -100,6 +100,73 @@ async function initDatabase() {
   }
 }
 
+// Funzione per riorganizzare gli ID dopo un'eliminazione
+async function reorganizeIds() {
+  try {
+    // Disabilita temporaneamente le chiavi esterne per permettere la riorganizzazione
+    await db.exec('PRAGMA foreign_keys = OFF');
+
+    // Crea una tabella temporanea per gli utenti
+    await db.exec(`
+      CREATE TEMPORARY TABLE temp_utenti AS 
+      SELECT nome, cognome, indirizzo, codice_fiscale, data_nascita, comune, provincia, telefono, email, data_registrazione 
+      FROM utenti 
+      ORDER BY id
+    `);
+
+    // Crea una tabella temporanea per le email
+    await db.exec(`
+      CREATE TEMPORARY TABLE temp_email AS 
+      SELECT utente_id, oggetto, contenuto, data_invio 
+      FROM email_inviate 
+      ORDER BY id
+    `);
+
+    // Svuota le tabelle originali
+    await db.exec('DELETE FROM email_inviate');
+    await db.exec('DELETE FROM utenti');
+
+    // Resetta il contatore degli ID
+    await db.exec('DELETE FROM sqlite_sequence WHERE name="utenti"');
+    await db.exec('DELETE FROM sqlite_sequence WHERE name="email_inviate"');
+
+    // Reinserisce gli utenti con nuovi ID sequenziali
+    await db.exec(`
+      INSERT INTO utenti (nome, cognome, indirizzo, codice_fiscale, data_nascita, comune, provincia, telefono, email, data_registrazione)
+      SELECT nome, cognome, indirizzo, codice_fiscale, data_nascita, comune, provincia, telefono, email, data_registrazione
+      FROM temp_utenti
+    `);
+
+    // Ottieni la mappatura dei vecchi ID ai nuovi ID
+    const users = await db.all(`
+      SELECT id, ROW_NUMBER() OVER (ORDER BY id) as new_id
+      FROM utenti
+    `);
+
+    // Reinserisce le email con i nuovi ID utente
+    for (const user of users) {
+      await db.run(`
+        INSERT INTO email_inviate (utente_id, oggetto, contenuto, data_invio)
+        SELECT ?, oggetto, contenuto, data_invio
+        FROM temp_email
+        WHERE utente_id = ?
+      `, [user.id, user.new_id]);
+    }
+
+    // Elimina le tabelle temporanee
+    await db.exec('DROP TABLE temp_utenti');
+    await db.exec('DROP TABLE temp_email');
+
+    // Riabilita le chiavi esterne
+    await db.exec('PRAGMA foreign_keys = ON');
+
+    console.log('ID riorganizzati con successo');
+  } catch (error) {
+    console.error('Errore durante la riorganizzazione degli ID:', error);
+    throw error;
+  }
+}
+
 // Inizializza il database all'avvio
 setupDatabase().then(available => {
   dbAvailable = available;
@@ -288,7 +355,7 @@ app.get('/api/utenti', async (req, res) => {
       SELECT u.*, 
              (SELECT COUNT(*) FROM email_inviate WHERE utente_id = u.id) AS email_count
       FROM utenti u
-      ORDER BY u.data_registrazione DESC
+      ORDER BY u.id ASC
     `);
 
     res.status(200).json({ success: true, data: rows, dbAvailable: true });
@@ -334,22 +401,43 @@ app.delete('/api/utenti/:id', async (req, res) => {
 
   try {
     const { id } = req.params;
+    console.log(`Tentativo di eliminazione dell'utente con ID: ${id}`);
 
     // Inizia una transazione
     await db.exec('BEGIN TRANSACTION');
 
-    // Elimina l'utente (le email verranno eliminate automaticamente grazie al CASCADE)
-    await db.run('DELETE FROM utenti WHERE id = ?', [id]);
+    // Elimina prima le email associate all'utente
+    await db.run('DELETE FROM email_inviate WHERE utente_id = ?', [id]);
+
+    // Poi elimina l'utente
+    const result = await db.run('DELETE FROM utenti WHERE id = ?', [id]);
+
+    // Verifica se l'utente è stato effettivamente eliminato
+    if (result.changes === 0) {
+      await db.exec('ROLLBACK');
+      return res.status(404).json({
+        success: false,
+        message: `Nessun utente trovato con ID: ${id}`
+      });
+    }
+
+    // Riorganizza gli ID dopo l'eliminazione
+    await reorganizeIds();
 
     // Commit della transazione
     await db.exec('COMMIT');
+    console.log(`Utente con ID ${id} eliminato con successo e ID riorganizzati`);
 
-    res.status(200).json({ success: true, message: 'Utente eliminato con successo' });
+    res.status(200).json({ success: true, message: 'Utente eliminato con successo e ID riorganizzati' });
   } catch (error) {
     // Rollback in caso di errore
     await db.exec('ROLLBACK');
     console.error('Errore nell\'eliminazione dell\'utente:', error);
-    res.status(500).json({ success: false, message: 'Errore nell\'eliminazione dell\'utente', error: error.message });
+    res.status(500).json({
+      success: false,
+      message: 'Errore nell\'eliminazione dell\'utente',
+      error: error.message
+    });
   }
 });
 
@@ -372,6 +460,10 @@ app.delete('/api/utenti', async (req, res) => {
 
     // Elimina tutti gli utenti
     await db.run('DELETE FROM utenti');
+
+    // Resetta il contatore degli ID
+    await db.exec('DELETE FROM sqlite_sequence WHERE name="utenti"');
+    await db.exec('DELETE FROM sqlite_sequence WHERE name="email_inviate"');
 
     // Commit della transazione
     await db.exec('COMMIT');
