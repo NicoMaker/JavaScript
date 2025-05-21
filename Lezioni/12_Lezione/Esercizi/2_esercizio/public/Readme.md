@@ -266,4 +266,4 @@ Il front-end si interfaccia perfettamente con il backend attraverso:
 - Adattamento ai dati provenienti dal backend
 - Sincronizzazione stato locale con server
 
-- [Readme Backend](../Readme.md)
+[Readme Backend](../Readme.md)
