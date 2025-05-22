@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modulo di Registrazione</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Barra in alto -->
+    <div class="top-header">
+        <div class="top-header-left">Form di iscrizione ✍</div>
+        <div class="top-header-right">
+            <a href="#" id="homeLink">🏠 Home</a>
+            <a href="#" id="viewDataLink">📊 Visualizza Dati</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Modulo di Registrazione Utente</h1>
+            <p class="subtitle">Compila tutti i campi richiesti per completare la registrazione</p>
+        </header>
+
+        <main>
+            <form id="registrationForm">
+                <div class="form-row">
+                    <!-- NOME -->
+                    <div class="form-group">
+                        <label for="nome" class="required">Nome</label>
+                        <div class="input-icon">
+                            <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
+                            <span class="icon">👤</span>
+                        </div>
+                        <div id="nome-error" class="error-message"></div>
+                    </div>
+
+                    <!-- COGNOME -->
+                    <div class="form-group">
+                        <label for="cognome" class="required">Cognome</label>
+                        <div class="input-icon">
+                            <input type="text" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome"
+                                required>
+                            <span class="icon">👥</span>
+                        </div>
+                        <div id="cognome-error" class="error-message"></div>
+                    </div>
+                </div>
+
+                <!-- INDIRIZZO -->
+                <div class="form-group">
+                    <label for="indirizzo" class="required">Indirizzo</label>
+                    <div class="input-icon">
+                        <input type="text" id="indirizzo" name="indirizzo" placeholder="Inserisci il tuo indirizzo"
+                            required>
+                        <span class="icon">🏠</span>
+                    </div>
+                    <div id="indirizzo-error" class="error-message"></div>
+                </div>
+
+                <div class="form-row">
+                    <!-- CODICE FISCALE -->
+                    <div class="form-group">
+                        <label for="codiceFiscale" class="required">Codice Fiscale</label>
+                        <div class="input-icon">
+                            <input type="text" id="codiceFiscale" name="codiceFiscale"
+                                placeholder="Inserisci il tuo codice fiscale" required>
+                            <span class="icon">📜</span>
+                        </div>
+                        <div id="codiceFiscale-error" class="error-message"></div>
+                    </div>
+
+                    <!-- ANNO DI NASCITA -->
+                    <div class="form-group">
+                        <label for="annoDiNascita" class="required">Anno di Nascita</label>
+                        <div class="input-icon">
+                            <input type="number" id="annoDiNascita" name="annoDiNascita" placeholder="Es. 1990" required
+                                min="1900" max="2006">
+                            <span class="icon">🎂</span>
+                        </div>
+                        <div id="annoDiNascita-error" class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <!-- COMUNE -->
+                    <div class="form-group">
+                        <label for="residenzaComune" class="required">Comune di Residenza</label>
+                        <div class="input-icon">
+                            <input type="text" id="residenzaComune" name="residenzaComune"
+                                placeholder="Inserisci il tuo comune" required>
+                            <span class="icon">🏙</span>
+                        </div>
+                        <div id="residenzaComune-error" class="error-message"></div>
+                    </div>
+
+                    <!-- PROVINCIA -->
+                    <div class="form-group">
+                        <label for="residenzaProvincia" class="required">Provincia</label>
+                        <div class="input-icon">
+                            <input type="text" id="residenzaProvincia" name="residenzaProvincia" placeholder="Es. MI"
+                                maxlength="2" required>
+                            <span class="icon">🏞</span>
+                        </div>
+                        <div id="residenzaProvincia-error" class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <!-- TELEFONO -->
+                    <div class="form-group">
+                        <label for="telefono" class="required">Telefono</label>
+                        <div class="input-icon">
+                            <input type="text" id="telefono" name="telefono" placeholder="Es. +39 1234567890" required>
+                            <span class="icon">📞</span>
+                        </div>
+                        <div id="telefono-error" class="error-message"></div>
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+                        <label for="email" class="required">Email</label>
+                        <div class="input-icon">
+                            <input type="email" id="email" name="email" placeholder="esempio@email.com" required>
+                            <span class="icon">📧</span>
+                        </div>
+                        <div id="email-error" class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submitButton">Invia Registrazione</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <!-- Toast per messaggi di successo/errore -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
