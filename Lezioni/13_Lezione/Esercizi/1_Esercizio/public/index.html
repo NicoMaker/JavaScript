@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modulo di Registrazione</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="email-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-user-plus"></i>
+                <span>Registrazione</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#" id="viewDataBtn">Visualizza Dati</a>
+            </div>
+        </nav>
+
+        <main>
+            <div class="container">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h1>Modulo di Registrazione</h1>
+                        <p>Compila tutti i campi per completare la registrazione</p>
+                    </div>
+
+                    <form id="registrationForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="nome" name="nome" required>
+                                </div>
+                                <span class="error" id="nomeError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cognome">Cognome <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="cognome" name="cognome" required>
+                                </div>
+                                <span class="error" id="cognomeError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="indirizzo">Indirizzo <span class="required">*</span></label>
+                            <div class="input-group">
+                                <i class="fas fa-home"></i>
+                                <input type="text" id="indirizzo" name="indirizzo" required>
+                            </div>
+                            <span class="error" id="indirizzoError"></span>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="codiceFiscale">Codice Fiscale <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-id-card"></i>
+                                    <input type="text" id="codiceFiscale" name="codiceFiscale" required maxlength="16">
+                                </div>
+                                <span class="error" id="codiceFiscaleError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dataNascita">Data di Nascita <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-calendar"></i>
+                                    <input type="date" id="dataNascita" name="dataNascita" required>
+                                </div>
+                                <span class="error" id="dataNascitaError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="comune">Comune di Residenza <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-city"></i>
+                                    <input type="text" id="comune" name="comune" required>
+                                </div>
+                                <span class="error" id="comuneError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="provincia">Provincia <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <input type="text" id="provincia" name="provincia" required maxlength="2"
+                                        placeholder="Es. MI">
+                                </div>
+                                <span class="error" id="provinciaError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Telefono <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-phone"></i>
+                                    <input type="tel" id="telefono" name="telefono" required>
+                                </div>
+                                <span class="error" id="telefonoError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <div class="input-group">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <span class="error" id="emailError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group privacy-group">
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <label for="privacy">Accetto la <a href="#">Privacy Policy</a> <span
+                                        class="required">*</span></label>
+                            </div>
+                            <span class="error" id="privacyError"></span>
+                        </div>
+
+                        <div class="form-group submit-group">
+                            <button type="submit" id="submitBtn" disabled>
+                                <span>Invia</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal per visualizzare i dati -->
+        <div id="dataModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Dati Registrati</h2>
+                    <span class="close" id="closeDataModal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="table-container">
+                        <div class="table-actions">
+                            <button id="deleteAllBtn" class="delete-all-btn">
+                                <i class="fas fa-trash-alt"></i> Elimina tutti i dati
+                            </button>
+                        </div>
+                        <table id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Cognome</th>
+                                    <th>Indirizzo</th>
+                                    <th>Codice Fiscale</th>
+                                    <th>Data Nascita</th>
+                                    <th>Comune</th>
+                                    <th>Provincia</th>
+                                    <th>Telefono</th>
+                                    <th>Email</th>
+                                    <th>Azioni</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody"></tbody>
+                        </table>
+                        <div id="noData" class="no-data">Nessun dato disponibile</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal di conferma eliminazione -->
+        <div id="confirmDeleteModal" class="modal">
+            <div class="modal-content confirm-modal">
+                <span class="close" id="closeConfirmModal">&times;</span>
+                <div class="warning-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h2>Conferma Eliminazione</h2>
+                <p>Sei sicuro di voler eliminare tutti i dati? Questa azione non può essere annullata.</p>
+                <div class="confirm-actions">
+                    <button id="confirmDeleteBtn" class="confirm-btn">Elimina</button>
+                    <button id="cancelDeleteBtn" class="cancel-btn">Annulla</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal di successo -->
+        <div id="successModal" class="modal">
+            <div class="modal-content success-modal">
+                <span class="close" id="closeSuccessModal">&times;</span>
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Registrazione Completata</h2>
+                <p>I tuoi dati sono stati inviati con successo!</p>
+                <p>Una email di conferma è stata inviata al tuo indirizzo email.</p>
+            </div>
+        </div>
+
+        <!-- Modal di errore -->
+        <div id="errorModal" class="modal">
+            <div class="modal-content error-modal">
+                <span class="close" id="closeErrorModal">&times;</span>
+                <div class="error-icon">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <h2>Errore</h2>
+                <p id="errorMessage">Si è verificato un errore durante l'invio dei dati.</p>
+                <button id="retryButton" class="retry-button">Riprova</button>
+            </div>
+        </div>
+
+        <!-- Loader -->
+        <div id="loader" class="loader-container">
+            <div class="loader"></div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Sistema di Registrazione. Tutti i diritti riservati.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
