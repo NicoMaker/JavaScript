@@ -669,3 +669,10 @@ body {
 .marker-icon:hover {
   transform: scale(1.2);
 }
+
+/* Visibile solo su schermi larghi (es. PC) */
+@media screen and (min-width: 1024px) {
+  #sidebarToggle {
+    display: none;
+  }
+}
